@@ -77,17 +77,19 @@ CREATE TABLE
     title VARCHAR(255) NOT NULL,
     description VARCHAR(255) NOT NULL,
     image VARCHAR(255) NOT NULL,
+    githubRepo VARCHAR(255) NOT NULL,
+    liveView VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT NOW ()
   );
 
 -- insert about_me
 INSERT INTO
-  projects (title,description)
+  projects (id,title,description,image,githubRepo,liveView)
 VALUES
   (1,'Academia','Welcome to Academia,
   in the site you will see list of courses
  depending in which category you click. 
-'),(2,'MetaBook','It is a social networking platform 
+','uplead in front','github','live view'),(2,'MetaBook','It is a social networking platform 
 similar to the Facebook platform, 
 in which allows people to share their moments first.
-') RETURNING *;
+','uplead in front','github','live view') RETURNING *;

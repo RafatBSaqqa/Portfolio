@@ -17,6 +17,7 @@ import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import SkipNextIcon from "@mui/icons-material/SkipNext";
 import Container from "@mui/material/Container";
+import Link from '@mui/material/Link';
 
 export default function Projects() {
   const theme = useTheme();
@@ -38,47 +39,50 @@ export default function Projects() {
     contactInformation();
   }, []);
   return (
-      <Container>
-        {state.project.map((res) => {
-          return (
-            <Card
-              key={res.id}
-              sx={{
-                display: "flex",
-                justifyContent: "space-around",
-                padding: 1,
-              }}
-            >
-              <Box sx={{ display: "flex", flexDirection: "column" }}>
-                <CardContent sx={{ flex: "1 0 auto" }}>
-                  <Typography component="div" variant="h5">
-                    {res.title}
-                  </Typography>
-                  <Typography
-                    variant="subtitle1"
-                    color="text.secondary"
-                    component="div"
-                    width={400}
-                  >
-                    {res.description}
-                  </Typography>
-                </CardContent>
-                <Box
-                  sx={{ display: "flex", alignItems: "center", pl: 1, pb: 1 }}
+    <Container>
+      {state.project.map((res) => {
+        return (
+          <Card
+            key={res.id}
+            sx={{
+              display: "flex",
+              justifyContent: "space-around",
+              padding: 1,
+            }}
+          >
+            <Box sx={{ display: "flex", flexDirection: "column" }}>
+              <CardContent sx={{ flex: "1 0 auto" }}>
+                <Typography component="div" variant="h5">
+                  {res.title}
+                </Typography>
+                <Typography
+                  variant="subtitle1"
+                  color="text.secondary"
+                  component="div"
+                  width={400}
                 >
-                  <IconButton aria-label="previous">Github</IconButton>
-                  <IconButton aria-label="next">Live View</IconButton>
-                </Box>
+                  {res.description}
+                </Typography>
+              </CardContent>
+              <Box sx={{ display: "flex", alignItems: "center", pl: 1, pb: 1 }}>
+              <Link targ href="" variant="body2">
+                <IconButton onClick={()=> window.open("https://github.com/RafatBSaqqa/Portfolio", "_blank")} aria-label="previous">Github</IconButton>
+                </Link>
+                <IconButton aria-label="next">Live View</IconButton>
+              
+                  {'variant="body2"'}
+                
               </Box>
-              <CardMedia
-                component="img"
-                sx={{ width: 151 }}
-                image={`${res.image}`}
-                alt={`${res.title}`}
-              />
-            </Card>
-          );
-        })}
-      </Container>
+            </Box>
+            <CardMedia
+              component="img"
+              sx={{ width: 151 }}
+              image={`${res.image}`}
+              alt={`${res.title}`}
+            />
+          </Card>
+        );
+      })}
+    </Container>
   );
 }
