@@ -71,12 +71,14 @@ export default function Projects() {
                 </IconButton>
               </Box>
             </Box>
-            <CardMedia
-              component="img"
-              sx={{ width: 151 }}
-              image={`${res.image}`}
-              alt={`${res.title}`}
-            />
+            <Box sx={{ boxShadow: 4 }}>
+              <CardMedia
+                component="img"
+                sx={{ width: 351 }}
+                image={`${res.image}`}
+                alt={`${res.title}`}
+              />
+            </Box>
           </Card>
         );
       })}
