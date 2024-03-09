@@ -75,7 +75,9 @@ CREATE TABLE
   projects (
     id SERIAL PRIMARY KEY NOT NULL,
     title VARCHAR(255) NOT NULL,
-    description VARCHAR(255) NOT NULL
+    description VARCHAR(255) NOT NULL,
+    image VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT NOW ()
   );
 
 -- insert about_me
