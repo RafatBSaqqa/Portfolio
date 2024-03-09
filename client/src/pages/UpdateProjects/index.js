@@ -1,24 +1,36 @@
 import { Button, TextField, Alert, Box } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-
+import {useDispatch, useSelector } from "react-redux";
+import { setProject } from "../../Services/redux/reducers/Project/projectSlice";
 export default function CreateProjects() {
+  const dispatch = useDispatch();
   const [Done, setDone] = useState(false);
   const state = useSelector((state) => {
     return {
       auth: state.auth.token,
+      project: state.project.project,
     };
   });
   const [image, setImage] = useState("");
+  const [projectId, setProjectId] = useState(0)
   const [url, setUrl] = useState(null);
   const [title, setTitle] = useState(null);
   const [description, setDescription] = useState(null);
   const [githubrepo, setGithubrepo] = useState(null);
   const [liveview, setLiveview] = useState(null);
-
-  const NewData = async () => {
-    const Create = {
+  const projectsInformation = async () => {
+    try {
+      const result = await axios.get("http://localhost:5000/projects");
+      dispatch(setProject(result.data.result));
+    } catch (error) {}
+  };
+  useEffect(() => {
+    projectsInformation();
+  }, []);
+  const UpdateData = async (projectId) => {
+    console.log(projectId);
+    const Update = {
       title: title,
       description: description,
       image: url,
@@ -26,7 +38,7 @@ export default function CreateProjects() {
       liveview: liveview,
     };
     try {
-      const result = await axios.post(`http://localhost:5000/projects`, Create, {
+      const result = await axios.put(`http://localhost:5000/projects/${projectId}`, Update, {
         headers: {
           authorization: `Bearer ${state.auth}`,
         },
@@ -40,7 +52,6 @@ export default function CreateProjects() {
 
   // Upload image
   const uploadImage = () => {
-    console.log(image);
     const data = new FormData();
     data.append("file", image);
     data.append("upload_preset", "luipbyrc");
@@ -57,60 +68,71 @@ export default function CreateProjects() {
       .catch((err) => console.log(err));
   };
   return (
-    <div>
-      <TextField
-        id="standard-basic"
-        onChange={(e) => {
-          setTitle(e.target.value);
-        }}
-        label="Title"
-        variant="standard"
-      />
-      <Box component="section" sx={{ p: 2, border: "1px dashed grey" }}>
-        <input
-          type="file"
-          onChange={(e) => setImage(e.target.files[0])}
-        ></input>
-        <Button
-          onClick={(e) => {
-            e.preventDefault();
-            uploadImage();
-          }}
+    <>
+    {state.project.map((res) => {
+      return (
+        <div key={res.id}>
+          <br/>
+        <TextField
           id="standard-basic"
-          label="image"
+          onChange={(e) => {
+            setTitle(e.target.value);
+          }}
+          label={res.title}
           variant="standard"
-        >
-          Upload
-        </Button>
-      </Box>
-      <TextField
-        id="standard-basic"
-        onChange={(e) => {
-          setDescription(e.target.value);
-        }}
-        label="Description"
-        variant="standard"
-      />
-      <br />
-      <TextField
-        id="standard-basic"
-        onChange={(e) => {
-          setGithubrepo(e.target.value);
-        }}
-        label="GitHub Repo Link"
-        variant="standard"
-      />
-      <br />
-      <TextField
-        id="standard-basic"
-        onChange={(e) => {
-          setLiveview(e.target.value);
-        }}
-        label="Live View Link"
-        variant="standard"
-      />
-      {Done && <Alert severity="success">Changed successfully</Alert>}
-      <Button onClick={NewData}>Save</Button>
-    </div>
+        />
+        <Box component="section" sx={{ p: 2, border: "1px dashed grey" }}>
+          <input
+            type="file"
+            onChange={(e) => setImage(e.target.files[0])}
+          ></input>
+          <Button
+            onClick={(e) => {
+              e.preventDefault();
+              uploadImage();
+            }}
+            id="standard-basic"
+            label="image"
+            variant="standard"
+          >
+            Upload
+          </Button>
+        </Box>
+        <TextField
+        fullWidth 
+          id="standard-basic"
+          onChange={(e) => {
+            setDescription(e.target.value);
+          }}
+          label={res.description}
+          variant="standard"
+        />
+        <br />
+        <TextField
+          id="standard-basic"
+          onChange={(e) => {
+            setGithubrepo(e.target.value);
+          }}
+          label="GitHub Repo Link"
+          variant="standard"
+        />
+        <br />
+        <TextField
+          id="standard-basic"
+          onChange={(e) => {
+            setLiveview(e.target.value);
+          }}
+          label="Live View Link"
+          variant="standard"
+        />
+        {Done && <Alert severity="success">Changed successfully</Alert>}
+        <Button onClick={() => {
+          UpdateData(res.id)
+          // setProjectId(res.id)
+        }}>Save</Button>
+      </div>
+      );
+    })}
+  </>
   );
 }
