@@ -10,7 +10,10 @@ import Dashboard from "../layouts/Dashboard";
 import EditHome from "../pages/EditHome";
 import EditAbout from "../pages/EditAbout";
 import EditContact from "../pages/EditContact";
-import EditProjects from "../pages/EditProjects";
+import CreateProjects from "../pages/CreateProjects";
+import DeleteProjects from "../pages/DeleteProjects";
+import UpdateProjects from "../pages/UpdateProjects";
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -33,7 +36,12 @@ export const router = createBrowserRouter([
       { path: "/dashboard/editHome", element: <EditHome /> },
       { path: "/dashboard/editAbout", element: <EditAbout /> },
       { path: "/dashboard/editContact", element: <EditContact /> },
-      { path: "/dashboard/editProjects", element: <EditProjects /> },
+      { path: "/dashboard/CreateProjects", element: <CreateProjects /> },
+      ,
+      { path: "/dashboard/DeleteProjects", element: <DeleteProjects /> },
+      ,
+      { path: "/dashboard/UpdateProjects", element: <UpdateProjects /> },
+      
     ], 
   },
   {

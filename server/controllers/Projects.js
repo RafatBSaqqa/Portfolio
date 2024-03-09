@@ -43,7 +43,7 @@ const updateProjectInformation = async (req, res) => {
 };
 
 const createProjectInformation = async (req, res) => {
-  const { title, description } = req.body;
+  const { title, description,githubrepo,liveview,image } = req.body;
   const placeholder = [title, description,image,githubrepo,liveview];
   try {
     const createInformation = await pool.query(

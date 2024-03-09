@@ -1,27 +1,17 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  setProject,
-  updateProject,
-} from "../../Services/redux/reducers/Project/projectSlice";
+import { setProject } from "../../Services/redux/reducers/Project/projectSlice";
 
-import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
-import PlayArrowIcon from "@mui/icons-material/PlayArrow";
-import SkipNextIcon from "@mui/icons-material/SkipNext";
 import Container from "@mui/material/Container";
-import Link from '@mui/material/Link';
 
 export default function Projects() {
-  const theme = useTheme();
-
   const dispatch = useDispatch();
 
   const state = useSelector((state) => {
@@ -29,15 +19,16 @@ export default function Projects() {
       project: state.project.project,
     };
   });
-  const contactInformation = async () => {
+  const projectsInformation = async () => {
     try {
       const result = await axios.get("http://localhost:5000/projects");
       dispatch(setProject(result.data.result));
     } catch (error) {}
   };
   useEffect(() => {
-    contactInformation();
+    projectsInformation();
   }, []);
+
   return (
     <Container>
       {state.project.map((res) => {
@@ -65,13 +56,19 @@ export default function Projects() {
                 </Typography>
               </CardContent>
               <Box sx={{ display: "flex", alignItems: "center", pl: 1, pb: 1 }}>
-              <Link targ href="" variant="body2">
-                <IconButton onClick={()=> window.open("https://github.com/RafatBSaqqa/Portfolio", "_blank")} aria-label="previous">Github</IconButton>
-                </Link>
-                <IconButton aria-label="next">Live View</IconButton>
-              
-                  {'variant="body2"'}
-                
+                <IconButton
+                  onClick={() => window.open(`${res.githubrepo}`, "_blank")}
+                  aria-label="previous"
+                >
+                  Github
+                </IconButton>
+
+                <IconButton
+                  onClick={() => window.open(`${res.liveview}`, "_blank")}
+                  aria-label="next"
+                >
+                  Live View
+                </IconButton>
               </Box>
             </Box>
             <CardMedia

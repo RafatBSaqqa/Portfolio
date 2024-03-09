@@ -1,37 +1,37 @@
-import { Button, TextField, Alert,Box } from "@mui/material";
+import { Button, TextField, Alert, Box } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-export default function EditProjects() {
+export default function DeleteProjects() {
   const [Done, setDone] = useState(false);
   const state = useSelector((state) => {
     return {
       auth: state.auth.token,
     };
   });
-
   const [image, setImage] = useState("");
   const [url, setUrl] = useState(null);
   const [title, setTitle] = useState(null);
   const [description, setDescription] = useState(null);
   const [githubrepo, setGithubrepo] = useState(null);
   const [liveview, setLiveview] = useState(null);
-  
+
   const NewData = async () => {
     const Create = {
       title: title,
       description: description,
       image: url,
-      githubrepo:githubrepo,
-      liveview:liveview,
+      githubrepo: githubrepo,
+      liveview: liveview,
     };
     try {
-      const result = await axios.put(`http://localhost:5000/home`, Create, {
+      const result = await axios.post(`http://localhost:5000/projects`, Create, {
         headers: {
           authorization: `Bearer ${state.auth}`,
         },
       });
+      console.log(result);
       setDone(true);
     } catch (error) {
       console.log(error);
@@ -56,7 +56,6 @@ export default function EditProjects() {
       })
       .catch((err) => console.log(err));
   };
-
   return (
     <div>
       <TextField
@@ -67,19 +66,22 @@ export default function EditProjects() {
         label="Title"
         variant="standard"
       />
-       <Box component="section" sx={{ p: 2, border: '1px dashed grey' }}>
-      <input type="file" onChange={(e) => setImage(e.target.files[0])}></input>
-      <Button
-        onClick={(e) => {
-          e.preventDefault();
-          uploadImage();
-        }}
-        id="standard-basic"
-        label="image"
-        variant="standard"
-      >
-        Upload
-      </Button>
+      <Box component="section" sx={{ p: 2, border: "1px dashed grey" }}>
+        <input
+          type="file"
+          onChange={(e) => setImage(e.target.files[0])}
+        ></input>
+        <Button
+          onClick={(e) => {
+            e.preventDefault();
+            uploadImage();
+          }}
+          id="standard-basic"
+          label="image"
+          variant="standard"
+        >
+          Upload
+        </Button>
       </Box>
       <TextField
         id="standard-basic"
@@ -89,8 +91,8 @@ export default function EditProjects() {
         label="Description"
         variant="standard"
       />
-      <br/>
-       <TextField
+      <br />
+      <TextField
         id="standard-basic"
         onChange={(e) => {
           setGithubrepo(e.target.value);
@@ -98,8 +100,8 @@ export default function EditProjects() {
         label="GitHub Repo Link"
         variant="standard"
       />
-       <br/>
-       <TextField
+      <br />
+      <TextField
         id="standard-basic"
         onChange={(e) => {
           setLiveview(e.target.value);
@@ -110,5 +112,5 @@ export default function EditProjects() {
       {Done && <Alert severity="success">Changed successfully</Alert>}
       <Button onClick={NewData}>Save</Button>
     </div>
-  )
+  );
 }

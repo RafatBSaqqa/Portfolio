@@ -55,8 +55,24 @@ export default function ListItems() {
         <ListItemIcon>
           <LayersIcon />
         </ListItemIcon>
-        <NavLink className={"mobile-links"} to={"/dashboard/editProjects"}>
-          <ListItemText primary="Projects Page" />
+        <NavLink className={"mobile-links"} to={"/dashboard/CreateProjects"}>
+          <ListItemText primary="Create Projects" />
+        </NavLink>
+      </ListItemButton>
+      <ListItemButton>
+        <ListItemIcon>
+          <LayersIcon />
+        </ListItemIcon>
+        <NavLink className={"mobile-links"} to={"/dashboard/DeleteProjects"}>
+          <ListItemText primary="Delete Projects" />
+        </NavLink>
+      </ListItemButton>
+      <ListItemButton>
+        <ListItemIcon>
+          <LayersIcon />
+        </ListItemIcon>
+        <NavLink className={"mobile-links"} to={"/dashboard/UpdateProjects"}>
+          <ListItemText primary="Update Projects" />
         </NavLink>
       </ListItemButton>
       <ListItemButton>
