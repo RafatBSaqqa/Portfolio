@@ -15,15 +15,19 @@ export default function EditProjects() {
   const [url, setUrl] = useState(null);
   const [title, setTitle] = useState(null);
   const [description, setDescription] = useState(null);
+  const [githubrepo, setGithubrepo] = useState(null);
+  const [liveview, setLiveview] = useState(null);
   
-  const changeData = async () => {
-    const Change = {
+  const NewData = async () => {
+    const Create = {
       title: title,
       description: description,
       image: url,
+      githubrepo:githubrepo,
+      liveview:liveview,
     };
     try {
-      const result = await axios.put(`http://localhost:5000/home`, Change, {
+      const result = await axios.put(`http://localhost:5000/home`, Create, {
         headers: {
           authorization: `Bearer ${state.auth}`,
         },
@@ -89,7 +93,7 @@ export default function EditProjects() {
        <TextField
         id="standard-basic"
         onChange={(e) => {
-          setDescription(e.target.value);
+          setGithubrepo(e.target.value);
         }}
         label="GitHub Repo Link"
         variant="standard"
@@ -98,13 +102,13 @@ export default function EditProjects() {
        <TextField
         id="standard-basic"
         onChange={(e) => {
-          setDescription(e.target.value);
+          setLiveview(e.target.value);
         }}
         label="Live View Link"
         variant="standard"
       />
       {Done && <Alert severity="success">Changed successfully</Alert>}
-      <Button onClick={changeData}>Save</Button>
+      <Button onClick={NewData}>Save</Button>
     </div>
   )
 }
