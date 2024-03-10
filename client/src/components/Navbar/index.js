@@ -18,7 +18,6 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 const drawerWidth = 240;
 export default function Navbar(props) {
-
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -27,9 +26,11 @@ export default function Navbar(props) {
   };
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
-      </Typography>
+      <NavLink className={'mobile-links'} to={"/"}>
+        <Typography variant="h6" sx={{ my: 2 }}>
+          Rafat Saqqa
+        </Typography>
+      </NavLink>
       <Divider />
       <List>
         <ListItem disablePadding>
@@ -69,7 +70,7 @@ export default function Navbar(props) {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar style={{ background: '#2E3B55' }} component="nav" >
+      <AppBar style={{ background: "#2E3B55" }} component="nav">
         <Toolbar>
           <IconButton
             color="inherit"
@@ -80,13 +81,16 @@ export default function Navbar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
-          >
-            Rafat saqqa
-          </Typography>
+         
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+            >
+               <NavLink className={'mobile_links_home'} to={"/"}>
+              Rafat Saqqa
+              </NavLink>
+            </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             <NavLink to={"/"}>
               {" "}

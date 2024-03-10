@@ -1,4 +1,7 @@
-import { Button, TextField, Alert,Box } from "@mui/material";
+import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import Alert from "@mui/material/Alert";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
@@ -60,19 +63,22 @@ export default function EditHome() {
         label="position"
         variant="standard"
       />
-       <Box component="section" sx={{ p: 2, border: '1px dashed grey' }}>
-      <input type="file" onChange={(e) => setImage(e.target.files[0])}></input>
-      <Button
-        onClick={(e) => {
-          e.preventDefault();
-          uploadImage();
-        }}
-        id="standard-basic"
-        label="image"
-        variant="standard"
-      >
-        Upload
-      </Button>
+      <Box component="section" sx={{ p: 2, border: "1px dashed grey" }}>
+        <input
+          type="file"
+          onChange={(e) => setImage(e.target.files[0])}
+        ></input>
+        <Button
+          onClick={(e) => {
+            e.preventDefault();
+            uploadImage();
+          }}
+          id="standard-basic"
+          label="image"
+          variant="standard"
+        >
+          Upload
+        </Button>
       </Box>
       <TextField
         id="standard-basic"

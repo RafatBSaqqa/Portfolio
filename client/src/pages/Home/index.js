@@ -12,9 +12,38 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import HtmlIcon from "@mui/icons-material/Html";
-import CssIcon from '@mui/icons-material/Css';
-import JavascriptIcon from '@mui/icons-material/Javascript';
+import About from "../About/index";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faJs,
+  faFontAwesome,
+  faHtml5,
+  faCss3Alt,
+  faNode,
+  faReact,
+  faBootstrap,
+  faPhp,
+  faGit,
+  faGithub,
+  faLinkedin
+} from "@fortawesome/free-brands-svg-icons";
+
+library.add(
+  fas,
+  faFontAwesome,
+  faHtml5,
+  faCss3Alt,
+  faNode,
+  faJs,
+  faReact,
+  faBootstrap,
+  faPhp,
+  faGit,
+  faGithub,
+  faLinkedin
+);
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
@@ -40,17 +69,14 @@ export default function Home() {
   useEffect(() => {
     homeInformation();
   }, []);
-  <script
-    src="https://kit.fontawesome.com/83518c9c44.js"
-    crossorigin="anonymous"
-  ></script>;
+
   return (
     <Container>
       <Box
         sx={{
           display: "flex",
           justifyContent: "center",
-          p: 1,
+          p: 4,
           m: 1,
           bgcolor: "background.paper",
           // borderRadius: 1,
@@ -60,14 +86,23 @@ export default function Home() {
         {state.home.map((res) => {
           return (
             <>
-              <Box width={400}>
+              <Box width={450}>
                 <Item>
                   <Typography
                     paddingTop={2}
                     paddingLeft={2}
                     lineHeight={1.3}
-                    variant="h4"
+                    variant="h5"
                     component="h4"
+                  >
+                    Hello. I'm Rafat
+                  </Typography>
+                  <Typography
+                    paddingTop={2}
+                    paddingLeft={2}
+                    lineHeight={1.3}
+                    variant="h4"
+                    component="h1"
                   >
                     {res.position}
                   </Typography>
@@ -80,8 +115,16 @@ export default function Home() {
                     {res.bio}
                   </Typography>
                   <Typography paddingLeft={2} lineHeight={1.5}>
-                    <GitHubIcon />
-                    <LinkedInIcon />
+                    <FontAwesomeIcon
+                      icon="fa-brands fa-github"
+                      // style={{ color: "#000000" }}
+                      className=" iconSize"
+                    />
+                    <FontAwesomeIcon
+                      icon="fa-brands fa-linkedin"
+                      // style={{ color: "#000000" }}
+                      className="iconStyle iconSize"
+                    />
                   </Typography>
                 </Item>
               </Box>
@@ -95,16 +138,63 @@ export default function Home() {
           );
         })}
       </Box>
-      <Box
-
-      >
+      <Box sx={{ textAlign: "center" }}>
         <Typography padding={1}>Tech Stack:</Typography>
-        <Item>
-          <HtmlIcon fontSize="large" />
-          <CssIcon fontSize="large"/>
-          <JavascriptIcon fontSize="large"/>
+        <Item sx={{ textAlign: "center" }}>
+          <FontAwesomeIcon
+            className="iconSize iconStyle"
+            icon="fa-brands fa-html5"
+            style={{ color: "#ff3d3d" }}
+            paddingLeft={2}
+          />
+          <FontAwesomeIcon
+            icon="fa-brands fa-css3-alt"
+            style={{ color: "#FFD43B" }}
+            className="iconStyle iconSize"
+          />
+          <FontAwesomeIcon
+            icon="fa-brands fa-js"
+            style={{ color: "#FFD43B" }}
+            className="iconStyle iconSize"
+          />
+          <FontAwesomeIcon
+            icon="fa-brands fa-node"
+            style={{ color: "#139028" }}
+            className="iconStyle iconSize"
+          />
+          <FontAwesomeIcon
+            icon="fa-brands fa-react"
+            style={{ color: "#74C0FC" }}
+            className="iconStyle iconSize"
+          />
+          <FontAwesomeIcon
+            icon="fa-brands fa-bootstrap"
+            style={{ color: "#7244fd" }}
+            className="iconStyle iconSize"
+          />
+          <FontAwesomeIcon
+            icon="fa-brands fa-php"
+            style={{ color: "#B197FC" }}
+            className="iconStyle iconSize"
+          />
+          <FontAwesomeIcon
+            icon="fa-solid fa-database"
+            style={{ color: "#000000" }}
+            className="iconStyle iconSize"
+          />
+          <FontAwesomeIcon
+            icon="fa-brands fa-git"
+            style={{ color: "#ff4405" }}
+            className="iconStyle iconSize"
+          />
+          <FontAwesomeIcon
+            icon="fa-brands fa-github"
+            style={{ color: "#000000" }}
+            className="iconStyle iconSize"
+          />
         </Item>
       </Box>
+      {/* <About/> */}
     </Container>
   );
 }

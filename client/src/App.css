@@ -11,3 +11,13 @@
 .img_home {
     border-radius: 50%;
 }
+.mobile_links_home {
+    color: white;
+    text-decoration: none;
+}
+.iconSize{
+    font-size:xx-large;
+}
+.iconStyle {
+    padding-left: 20px;
+}

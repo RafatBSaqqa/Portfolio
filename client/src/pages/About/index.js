@@ -5,7 +5,11 @@ import {
   setAbout,
   updateAbout,
 } from "../../Services/redux/reducers/About/aboutSlice";
+
+import ReactDOM from 'react-dom'
+
 export default function About() {
+ 
   const dispatch = useDispatch();
   const state = useSelector((state) => {
     return {
@@ -23,6 +27,7 @@ export default function About() {
   }, []);
   return (
     <div>
+   
       {state.about.map((res) => {
         return (
           <div key={res.id}>
