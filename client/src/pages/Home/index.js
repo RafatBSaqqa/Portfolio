@@ -27,7 +27,7 @@ import {
   faPhp,
   faGit,
   faGithub,
-  faLinkedin
+  faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 
 library.add(
@@ -94,6 +94,7 @@ export default function Home() {
                     lineHeight={1.3}
                     variant="h5"
                     component="h4"
+                    style={{ color: "#000000" }}
                   >
                     Hello. I'm Rafat
                   </Typography>
@@ -117,23 +118,24 @@ export default function Home() {
                   <Typography paddingLeft={2} lineHeight={1.5}>
                     <FontAwesomeIcon
                       icon="fa-brands fa-github"
-                      // style={{ color: "#000000" }}
                       className=" iconSize"
                     />
                     <FontAwesomeIcon
                       icon="fa-brands fa-linkedin"
-                      // style={{ color: "#000000" }}
                       className="iconStyle iconSize"
                     />
                   </Typography>
                 </Item>
               </Box>
-              {/* <Item> */}
-              <Typography paddingLeft={2}>
-                <img className={"img_home"} width={150} src={`${res.image}`} />
-              </Typography>
-
-              {/* </Item> */}
+              <Item>
+                <Typography padding={1}>
+                  <img
+                    className={"img_home"}
+                    width={150}
+                    src={`${res.image}`}
+                  />
+                </Typography>
+              </Item>
             </>
           );
         })}
