@@ -15,17 +15,17 @@ export default function EditAbout() {
   });
   const [image, setImage] = useState("");
   const [url, setUrl] = useState(null);
-  const [position, setPosition] = useState(null);
-  const [bio, setBio] = useState(null);
+  const [aboutMe, setAboutMe] = useState(null);
+  const [title, setTitle] = useState(null);
 
   const changeData = async () => {
-    const create = {
-      position: position,
-      bio: bio,
+    const update = {
+      aboutme: aboutMe,
+      title: title,
       image: url,
     };
     try {
-      const result = await axios.put(`http://localhost:5000/home`, create, {
+      const update = await axios.put(`http://localhost:5000/home`, update, {
         headers: {
           authorization: `Bearer ${state.auth}`,
         },
@@ -58,9 +58,9 @@ export default function EditAbout() {
       <TextField
         id="standard-basic"
         onChange={(e) => {
-          setPosition(e.target.value);
+          setTitle(e.target.value);
         }}
-        label="position"
+        label="Title"
         variant="standard"
       />
       <Box component="section" sx={{ p: 2, border: "1px dashed grey" }}>
@@ -83,9 +83,9 @@ export default function EditAbout() {
       <TextField
         id="standard-basic"
         onChange={(e) => {
-          setBio(e.target.value);
+          setAboutMe(e.target.value);
         }}
-        label="bio"
+        label="About me"
         variant="standard"
       />
       {Done && <Alert severity="success">Changed successfully</Alert>}
