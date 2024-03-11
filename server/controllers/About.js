@@ -18,12 +18,12 @@ const getAboutInformation = async (req, res) => {
 };
 
 const updateAboutInformation = async (req, res) => {
-  const { about_me } = req.body;
-  const placeholder = [about_me];
-  
+  const { about_me, title, image } = req.body;
+  const placeholder = [about_me, title, image];
+
   try {
     const updateInformation = await pool.query(
-      `UPDATE about SET about_me =  COALESCE($1, about_me)  RETURNING *`,
+      `UPDATE projects SET ( title,about_me,image) =  (COALESCE($1, title),COALESCE($2, about_me),COALESCE($3, image) ) RETURNING *`,
       placeholder
     );
     res.status(200).json({
