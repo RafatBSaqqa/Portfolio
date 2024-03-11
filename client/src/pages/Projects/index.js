@@ -28,9 +28,22 @@ export default function Projects() {
   useEffect(() => {
     projectsInformation();
   }, []);
-
+  const styles = (theme) => ({
+    root: {
+      color: "blue",
+      [theme.breakpoints.down('md')]: {
+        backgroundColor: theme.palette.secondary.main,
+      },
+      [theme.breakpoints.up('md')]: {
+        backgroundColor: theme.palette.primary.main,
+      },
+      [theme.breakpoints.up('lg')]: {
+        // backgroundColor: green[500],
+      },
+    },
+  });
   return (
-    <Container>
+    <Container style={state}>
       {state.project.map((res) => {
         return (
           <Card
@@ -38,12 +51,22 @@ export default function Projects() {
             sx={{
               display: "flex",
               justifyContent: "space-around",
-              padding: 1,
+              padding: 2,
+              margin:2,
+              bgcolor:"white",
+              flexWrap:"wrap",
             }}
+          
           >
             <Box sx={{ display: "flex", flexDirection: "column" }}>
-              <CardContent sx={{ flex: "1 0 auto" }}>
-                <Typography component="div" variant="h5">
+              <CardContent sx={{ flex: "1 0 auto",pl: {
+                  xs:15, //0
+                  sm:8, //600
+                  md:8, //900
+                  lg:8, //1200
+                  xl:8, // 1536
+              } }}>
+                <Typography sx={{ color:"#1bc78a" }}  component="div" variant="h5">
                   {res.title}
                 </Typography>
                 <Typography
@@ -55,26 +78,30 @@ export default function Projects() {
                   {res.description}
                 </Typography>
               </CardContent>
-              <Box sx={{ display: "flex", alignItems: "center", pl: 1, pb: 1 }}>
+              <Box sx={{ display: "flex", alignItems: "center", pl: {
+                  xs:14, //0
+                  sm:7, //600
+                  md:7, //900
+                  lg:8, //1200
+                  xl:8, // 1536
+              }, pb: 1 }}>
                 <IconButton
-                  onClick={() => window.open(`${res.githubrepo}`, "_blank")}
-                  aria-label="previous"
+                  onClick={() => window.open(`${res.githubrepo}`, "_blank")}                  
                 >
                   Github
                 </IconButton>
 
                 <IconButton
                   onClick={() => window.open(`${res.liveview}`, "_blank")}
-                  aria-label="next"
                 >
                   Live View
                 </IconButton>
               </Box>
             </Box>
-            <Box sx={{ boxShadow: 4 }}>
+            <Box sx={{ boxShadow: 5 }}>
               <CardMedia
                 component="img"
-                sx={{ width: 351 }}
+                sx={{ width: 350 }}
                 image={`${res.image}`}
                 alt={`${res.title}`}
               />

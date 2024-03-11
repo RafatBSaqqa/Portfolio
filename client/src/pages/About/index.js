@@ -31,7 +31,7 @@ export default function About() {
       {state.about.map((res) => {
         return (
           <div key={res.id}>
-            <h4>{res.about_me}</h4>
+            <h4 >{res.about_me}</h4>
           </div>
         );
       })}

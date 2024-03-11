@@ -26,8 +26,8 @@ export default function Navbar(props) {
   };
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <NavLink className={'mobile-links'} to={"/"}>
-        <Typography variant="h6" sx={{ my: 2 }}>
+      <NavLink className={"mobile-links"} to={"/"}>
+        <Typography variant="h6" sx={{ my: 2, color: "#000000" }}>
           Rafat Saqqa
         </Typography>
       </NavLink>
@@ -70,7 +70,7 @@ export default function Navbar(props) {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar style={{ background: "#2E3B55" }} component="nav">
+      <AppBar style={{ background: "#ffffff" }} component="nav">
         <Toolbar>
           <IconButton
             color="inherit"
@@ -79,32 +79,30 @@ export default function Navbar(props) {
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: "none" } }}
           >
-            <MenuIcon />
+            <MenuIcon style={{ color: "#1bc78a" }} />
           </IconButton>
-         
-            <Typography
-              variant="h6"
-              component="div"
-              sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
-            >
-               <NavLink className={'mobile_links_home'} to={"/"}>
+
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+          >
+            <NavLink className={"mobile_links_home"} to={"/"}>
               Rafat Saqqa
-              </NavLink>
-            </Typography>
+            </NavLink>
+          </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             <NavLink to={"/"}>
-              {" "}
-              <Button sx={{ color: "#fff" }}>{"home"}</Button>
+              <Button sx={{ color: "#1bc78a" }}>{"home"}</Button>
             </NavLink>
             <NavLink to={"/about"}>
-              {" "}
-              <Button sx={{ color: "#fff" }}>{"About"}</Button>
+              <Button sx={{ color: "#1bc78a" }}>{"About"}</Button>
             </NavLink>
             <NavLink to={"/contact"}>
-              <Button sx={{ color: "#fff" }}>{"Contact"}</Button>
+              <Button sx={{ color: "#1bc78a" }}>{"Contact"}</Button>
             </NavLink>
             <NavLink to={"/projects"}>
-              <Button sx={{ color: "#fff" }}>{"Projects"}</Button>
+              <Button sx={{ color: "#1bc78a" }}>{"Projects"}</Button>
             </NavLink>
           </Box>
         </Toolbar>

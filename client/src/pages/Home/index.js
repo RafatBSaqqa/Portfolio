@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setHome } from "../../Services/redux/reducers/Home/homeSlice";
@@ -54,6 +54,9 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function Home() {
+ 
+
+  const [loader, setLoader] = useState(false);
   const dispatch = useDispatch();
   const state = useSelector((state) => {
     return {
@@ -64,6 +67,7 @@ export default function Home() {
     try {
       const result = await axios.get("http://localhost:5000/home");
       dispatch(setHome(result.data.result));
+      setLoader(true);
     } catch (error) {}
   };
   useEffect(() => {
@@ -86,56 +90,60 @@ export default function Home() {
         {state.home.map((res) => {
           return (
             <>
-              <Box width={450}>
-                <Item>
-                  <Typography
-                    paddingTop={2}
-                    paddingLeft={2}
-                    lineHeight={1.3}
-                    variant="h5"
-                    component="h4"
-                    style={{ color: "#000000" }}
-                  >
-                    Hello. I'm Rafat
-                  </Typography>
-                  <Typography
-                    paddingTop={2}
-                    paddingLeft={2}
-                    lineHeight={1.3}
-                    variant="h4"
-                    component="h1"
-                  >
-                    {res.position}
-                  </Typography>
-                  <Typography
-                    padding={2}
-                    lineHeight={1.5}
-                    variant="subtitle2"
-                    component="h6"
-                  >
-                    {res.bio}
-                  </Typography>
-                  <Typography paddingLeft={2} lineHeight={1.5}>
-                    <FontAwesomeIcon
-                      icon="fa-brands fa-github"
-                      className=" iconSize"
+              {loader ? (
+                <>
+                  {" "}
+                  <Box width={450}>
+                    <Typography
+                      paddingTop={2}
+                      paddingLeft={2}
+                      lineHeight={1.3}
+                      variant="h5"
+                      component="h4"
+                      style={{ color: "#000000" }}
+                    >
+                      Hello. I'm Rafat
+                    </Typography>
+                    <Typography
+                      paddingTop={2}
+                      paddingLeft={2}
+                      lineHeight={1.3}
+                      variant="h4"
+                      component="h1"
+                      style={{ color: "#1bc78a" }}
+                    >
+                      {res.position}
+                    </Typography>
+                    <Typography
+                      padding={2}
+                      lineHeight={1.5}
+                      variant="subtitle2"
+                      component="h6"
+                    >
+                      {res.bio}
+                    </Typography>
+                    <Typography paddingLeft={2} lineHeight={1.5}>
+                      <FontAwesomeIcon
+                        icon="fa-brands fa-github"
+                        className=" iconSize"
+                      />
+                      <FontAwesomeIcon
+                        icon="fa-brands fa-linkedin"
+                        className="iconStyle iconSize"
+                      />
+                    </Typography>
+                  </Box>
+                  <Typography padding={1}>
+                    <img
+                      className={"img_home"}
+                      width={150}
+                      src={`${res.image}`}
                     />
-                    <FontAwesomeIcon
-                      icon="fa-brands fa-linkedin"
-                      className="iconStyle iconSize"
-                    />
                   </Typography>
-                </Item>
-              </Box>
-              <Item>
-                <Typography padding={1}>
-                  <img
-                    className={"img_home"}
-                    width={150}
-                    src={`${res.image}`}
-                  />
-                </Typography>
-              </Item>
+                </>
+              ) : (
+                <div class="loader"></div>
+              )}
             </>
           );
         })}

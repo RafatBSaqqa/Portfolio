@@ -112,7 +112,7 @@ export default function Contact() {
       >
         <Box sx={{ maxWidth: 600, mx: "auto", p: 2 }}>
           <Typography variant="h4" align="center" mb={2}>
-            Contact Us
+            Contact Me
           </Typography>
           <form ref={form} onSubmit={sendEmail}>
             {/* <input type="text" name="user_name" /> */}
@@ -151,9 +151,7 @@ export default function Contact() {
               <Alert severity="success">Message send successfully</Alert>
             )}
             <br />
-            <Button variant="contained" type="submit" sx={{ mt: 2 }}>
-              Submit
-            </Button>
+            <button className="btn_style">Submit</button>
           </form>
         </Box>
       </Box>

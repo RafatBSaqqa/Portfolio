@@ -6,13 +6,13 @@
 }
 .mobile-links {
     text-decoration: none;
-    color: rgba(0, 0, 0, 0.87);
+    color: #1bc78a;
 }
 .img_home {
     border-radius: 50%;
 }
 .mobile_links_home {
-    color: white;
+    color: #000000;
     text-decoration: none;
 }
 .iconSize{
@@ -21,3 +21,46 @@
 .iconStyle {
     padding-left: 20px;
 }
+.btn_style{
+    color: #1bc78a;
+    background-color: rgb(255, 255, 255);
+    margin-top: 9px;
+    padding: 5px 15px;
+    font-size: 19px;
+    border: #1bc78a 1px solid;
+    border-radius: 25px;
+    transition: all 0.5s;
+}
+.btn_style:hover{
+    background-color: #1bc78a;
+    color: white;
+    cursor: pointer;
+}
+
+/*  loader */
+
+.loader {
+    height: 40px;
+    aspect-ratio: 1.5;
+    --c: #1bc78a 96%,#0000;
+    background:
+      radial-gradient(farthest-side at 100% 100%,var(--c)),
+      radial-gradient(farthest-side at 0    100%,var(--c)),
+      radial-gradient(farthest-side at 100% 0   ,var(--c)),
+      radial-gradient(farthest-side at 0    0   ,var(--c));
+    background-size: 33.4% 50%;
+    background-repeat: no-repeat;
+    animation: l9 2s infinite linear;
+  }
+  @keyframes l9 {
+    0%    {background-position:0 0,50% 0,0 100%,50% 100%}
+    12.5% {background-position:0 0,100% 0,0 100%,50% 100%}
+    25%   {background-position:50% 0,100% 0,0 100%,50% 100%}
+    37.5% {background-position:50% 0,100% 0,0 100%,100% 100%}
+    50%   {background-position:50% 0,100% 0,50% 100%,100% 100%}
+    62.5% {background-position:0 0,100% 0,50% 100%,100% 100%}
+    75%   {background-position:0 0,50% 0,50% 100%,100% 100%}
+    87.5% {background-position:0 0,50% 0,0 100%,100% 100%}
+    100%  {background-position:0 0,50% 0,0 100%,50% 100%}
+  }
+  
