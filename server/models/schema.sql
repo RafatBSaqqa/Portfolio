@@ -57,14 +57,14 @@ DROP TABLE IF EXISTS about CASCADE;
 CREATE TABLE
   about (
     id SERIAL PRIMARY KEY NOT NULL,
-    about_me VARCHAR(255) NOT NULL,
+    aboutMe VARCHAR(255) NOT NULL,
     image VARCHAR(255) NOT NULL,
     title VARCHAR(255) NOT NULL
   );
 
 -- insert about_me
 INSERT INTO
-  about (about_me,title,image)
+  about (aboutMe,title,image)
 VALUES
   ('Specializing in web development, high motivation, and fast learner. 
 Looking for an opportunity to gain experience for improving myself to 

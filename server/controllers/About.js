@@ -18,12 +18,12 @@ const getAboutInformation = async (req, res) => {
 };
 
 const updateAboutInformation = async (req, res) => {
-  const { about_me, title, image } = req.body;
-  const placeholder = [about_me, title, image];
-
+  const { aboutMe, title, image } = req.body;
+  const placeholder = [aboutMe, title, image];
+  console.log(placeholder);
   try {
     const updateInformation = await pool.query(
-      `UPDATE projects SET ( title,about_me,image) =  (COALESCE($1, title),COALESCE($2, about_me),COALESCE($3, image) ) RETURNING *`,
+      `UPDATE about SET ( aboutMe,title,image) = (COALESCE($1, aboutMe),COALESCE($2, title),COALESCE($3, image) ) WHERE id =1 RETURNING *`,
       placeholder
     );
     res.status(200).json({
@@ -32,6 +32,7 @@ const updateAboutInformation = async (req, res) => {
       result: updateInformation.rows,
     });
   } catch (error) {
+    console.log(error.message);
     res.status(500).json({
       success: false,
       message: "Server error",
