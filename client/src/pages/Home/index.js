@@ -54,8 +54,6 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function Home() {
- 
-
   const [loader, setLoader] = useState(false);
   const dispatch = useDispatch();
   const state = useSelector((state) => {
@@ -150,7 +148,7 @@ export default function Home() {
       </Box>
       <Box sx={{ textAlign: "center" }}>
         <Typography padding={1}>Tech Stack:</Typography>
-        <Item sx={{ textAlign: "center" }}>
+        <Box sx={{ pt: 2 }}>
           <FontAwesomeIcon
             className="iconSize iconStyle"
             icon="fa-brands fa-html5"
@@ -202,7 +200,7 @@ export default function Home() {
             style={{ color: "#000000" }}
             className="iconStyle iconSize"
           />
-        </Item>
+        </Box>
       </Box>
       {/* <About/> */}
     </Container>

@@ -53,44 +53,43 @@ export default function EditAbout() {
       .catch((err) => console.log(err));
   };
 
-
   return (
     <div>
-    <TextField
-      id="standard-basic"
-      onChange={(e) => {
-        setPosition(e.target.value);
-      }}
-      label="position"
-      variant="standard"
-    />
-    <Box component="section" sx={{ p: 2, border: "1px dashed grey" }}>
-      <input
-        type="file"
-        onChange={(e) => setImage(e.target.files[0])}
-      ></input>
-      <Button
-        onClick={(e) => {
-          e.preventDefault();
-          uploadImage();
-        }}
+      <TextField
         id="standard-basic"
-        label="image"
+        onChange={(e) => {
+          setPosition(e.target.value);
+        }}
+        label="position"
         variant="standard"
-      >
-        Upload
-      </Button>
-    </Box>
-    <TextField
-      id="standard-basic"
-      onChange={(e) => {
-        setBio(e.target.value);
-      }}
-      label="bio"
-      variant="standard"
-    />
-    {Done && <Alert severity="success">Changed successfully</Alert>}
-    <Button onClick={changeData}>Save</Button>
-  </div>
-  )
+      />
+      <Box component="section" sx={{ p: 2, border: "1px dashed grey" }}>
+        <input
+          type="file"
+          onChange={(e) => setImage(e.target.files[0])}
+        ></input>
+        <Button
+          onClick={(e) => {
+            e.preventDefault();
+            uploadImage();
+          }}
+          id="standard-basic"
+          label="image"
+          variant="standard"
+        >
+          Upload
+        </Button>
+      </Box>
+      <TextField
+        id="standard-basic"
+        onChange={(e) => {
+          setBio(e.target.value);
+        }}
+        label="bio"
+        variant="standard"
+      />
+      {Done && <Alert severity="success">Changed successfully</Alert>}
+      <Button onClick={changeData}>Save</Button>
+    </div>
+  );
 }
