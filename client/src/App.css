@@ -9,7 +9,9 @@
     color: #1bc78a;
 }
 .img_home {
-    border-radius: 50%;
+    /* border-radius: 50%; */
+    clip-path: polygon(44% 4%, 80% 10%, 98% 35%, 97% 70%, 95% 92%, 50% 100%, 29% 87%, 7% 71%, 5% 37%, 16% 9%);
+
 }
 .mobile_links_home {
     color: #000000;
@@ -64,3 +66,11 @@
     100%  {background-position:0 0,50% 0,0 100%,50% 100%}
   }
   
+
+
+  /*  about_section */
+
+
+  .about_section {
+    background-color: #e7faf4;
+  }

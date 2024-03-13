@@ -27,6 +27,7 @@ export default function DeleteProjects() {
   return (
     <div>
       <Project/>
+
       <TextField
         id="standard-basic"
         onChange={(e) => {
@@ -36,7 +37,6 @@ export default function DeleteProjects() {
         variant="standard"
       />
       <Box component="section" sx={{ p: 2, border: "1px dashed grey" }}>
-  
 
       </Box>
       <TextField

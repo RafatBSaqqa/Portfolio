@@ -19,13 +19,14 @@ export default function EditAbout() {
   const [title, setTitle] = useState(null);
 
   const changeData = async () => {
-    const update = {
+    const updateData = {
       aboutme: aboutMe,
       title: title,
       image: url,
     };
+    console.log(updateData);
     try {
-      const update = await axios.put(`http://localhost:5000/home`, update, {
+      const update = await axios.put(`http://localhost:5000/about`, updateData, {
         headers: {
           authorization: `Bearer ${state.auth}`,
         },

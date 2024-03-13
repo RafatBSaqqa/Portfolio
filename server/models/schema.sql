@@ -95,3 +95,23 @@ VALUES
 similar to the Facebook platform, 
 in which allows people to share their moments first.
 ','uplead in front','github','live view') RETURNING *;
+
+
+-- //////////////////////////////////////////////////////
+
+DROP TABLE IF EXISTS aboutme CASCADE;
+
+CREATE TABLE
+  aboutme (
+    id SERIAL PRIMARY KEY NOT NULL,
+    aboutme VARCHAR(255) NOT NULL,
+    title VARCHAR(255) NOT NULL
+  );
+
+-- insert about_me
+INSERT INTO
+  aboutme (aboutme,title)
+VALUES
+  ('Specializing in web development, high motivation, and fast learner. 
+Looking for an opportunity to gain experience for improving myself to 
+deliver excellent Web pages.','About me') RETURNING *;
