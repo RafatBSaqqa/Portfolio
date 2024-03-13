@@ -5,6 +5,7 @@ import contactReducer from "./reducers/Contact/contactSlice";
 import projectReducer from "./reducers/Project/projectSlice";
 import aboutReducer from "./reducers/About/aboutSlice";
 import authReducer from "./reducers/Admin/adminSlice";
+import aboutMeReducer from "./reducers/AboutMe/aboutMeSlice";
 export default configureStore({
   // the reducer object is empty for now but after creating reducers we add them to this object
   reducer: {
@@ -12,6 +13,7 @@ export default configureStore({
     contact:contactReducer,
     project:projectReducer,
     about:aboutReducer,
-    auth:authReducer
+    auth:authReducer,
+    aboutMe:aboutMeReducer
   },
 });

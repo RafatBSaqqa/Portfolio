@@ -104,7 +104,7 @@ DROP TABLE IF EXISTS aboutme CASCADE;
 CREATE TABLE
   aboutme (
     id SERIAL PRIMARY KEY NOT NULL,
-    aboutme VARCHAR(255) NOT NULL,
+    aboutme TEXT NOT NULL,
     title VARCHAR(255) NOT NULL
   );
 

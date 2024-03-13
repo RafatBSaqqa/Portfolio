@@ -22,6 +22,9 @@ app.use("/about", aboutRouter);
 // Projects router
 const projectRouter = require("./routes/Projects");
 app.use("/projects", projectRouter);
+// AboutMe router
+const aboutMeRouter = require("./routes/AboutMe");
+app.use("/aboutme", aboutMeRouter);
 
 // Admin router
 const adminRouter = require("./routes/Admin");
