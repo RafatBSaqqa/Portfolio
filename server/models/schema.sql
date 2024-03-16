@@ -54,10 +54,10 @@ VALUES
 
   --  //////////////////////////////////////////////////////////
 
-DROP TABLE IF EXISTS about CASCADE;
+DROP TABLE IF EXISTS blog CASCADE;
 
 CREATE TABLE
-  about (
+  blog (
     id SERIAL PRIMARY KEY NOT NULL,
     aboutMe VARCHAR(255) NOT NULL,
     image VARCHAR(255) NOT NULL,
@@ -66,11 +66,11 @@ CREATE TABLE
 
 -- insert about_me
 INSERT INTO
-  about (aboutMe,title,image)
+  blog (aboutMe,title,image)
 VALUES
   ('Specializing in web development, high motivation, and fast learner. 
 Looking for an opportunity to gain experience for improving myself to 
-deliver excellent Web pages.','title','upload image') RETURNING *;
+deliver excellent Web pages.','About me in my field','http://res.cloudinary.com/dwenerokk/image/upload/v1710128694/sqizetuxp7grhyweyhu9.jpg') RETURNING *;
   --  //////////////////////////////////////////////////////////
 
 DROP TABLE IF EXISTS projects CASCADE;

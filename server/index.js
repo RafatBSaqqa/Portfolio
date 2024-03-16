@@ -16,9 +16,9 @@ app.use("/home", homeRouter);
 // Contact router
 const contactRouter = require("./routes/Contact");
 app.use("/contact", contactRouter);
-// About router
-const aboutRouter = require("./routes/About");
-app.use("/about", aboutRouter);
+// Blog router
+const blogRouter = require("./routes/Blog");
+app.use("/blog", blogRouter);
 // Projects router
 const projectRouter = require("./routes/Projects");
 app.use("/projects", projectRouter);

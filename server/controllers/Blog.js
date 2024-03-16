@@ -1,8 +1,8 @@
 const pool = require("../models/db");
 
-const getAboutInformation = async (req, res) => {
+const getBlogInformation = async (req, res) => {
   try {
-    const Information = await pool.query(`SELECT * FROM about`);
+    const Information = await pool.query(`SELECT * FROM blog`);
     res.status(200).json({
       success: true,
       message: "All information",
@@ -17,13 +17,13 @@ const getAboutInformation = async (req, res) => {
   }
 };
 
-const updateAboutInformation = async (req, res) => {
+const updateBlogInformation = async (req, res) => {
   const { aboutMe, title, image } = req.body;
   const placeholder = [aboutMe, title, image];
   console.log(placeholder);
   try {
     const updateInformation = await pool.query(
-      `UPDATE about SET ( aboutMe,title,image) = (COALESCE($1, aboutMe),COALESCE($2, title),COALESCE($3, image) ) WHERE id =1 RETURNING *`,
+      `UPDATE blog SET ( aboutMe,title,image) = (COALESCE($1, aboutMe),COALESCE($2, title),COALESCE($3, image) ) WHERE id =1 RETURNING *`,
       placeholder
     );
     res.status(200).json({
@@ -41,6 +41,6 @@ const updateAboutInformation = async (req, res) => {
   }
 };
 module.exports = {
-  getAboutInformation,
-  updateAboutInformation,
+  getBlogInformation,
+  updateBlogInformation,
 };

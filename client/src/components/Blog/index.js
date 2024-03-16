@@ -10,10 +10,6 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import CardContent from "@mui/material/CardContent";
-import Card from "@mui/material/Card";
-import CardMedia from "@mui/material/CardMedia";
-
 export default function Blog() {
   const dispatch = useDispatch();
   const state = useSelector((state) => {
@@ -23,7 +19,7 @@ export default function Blog() {
   });
   const aboutInformation = async () => {
     try {
-      const result = await axios.get("http://localhost:5000/about");
+      const result = await axios.get("http://localhost:5000/blog");
       dispatch(setBlog(result.data.result));
       console.log(result);
     } catch (error) {}
