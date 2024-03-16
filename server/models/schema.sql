@@ -24,7 +24,9 @@ CREATE TABLE
     id SERIAL PRIMARY KEY NOT NULL,
     position VARCHAR(255) NOT NULL ,
     bio VARCHAR(255) NOT NULL,
-    image VARCHAR(255) NOT NULL
+    image VARCHAR(255) NOT NULL,
+    github VARCHAR(255) NOT NULL,
+    linkedin VARCHAR(255) NOT NULL
   );
 
 -- insert personal_information

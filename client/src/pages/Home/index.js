@@ -7,11 +7,8 @@ import { setHome } from "../../Services/redux/reducers/Home/homeSlice";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
-import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import About from "../About/index";
 import Projects from "../../components/Project";
 import Contact from "../Contact/index";
@@ -128,10 +125,13 @@ export default function Home() {
                         <FontAwesomeIcon
                           icon="fa-brands fa-github"
                           className=" iconSize"
+                          style={{ color: "#000000" }}
                         />
                         <FontAwesomeIcon
                           icon="fa-brands fa-linkedin"
+                          style={{ color: "#0033ff" }}
                           className="iconStyle iconSize"
+                         
                         />
                       </Typography>
                     </Box>
@@ -159,6 +159,7 @@ export default function Home() {
               style={{ color: "#ff3d3d" }}
               paddingLeft={2}
             />
+
             <FontAwesomeIcon
               icon="fa-brands fa-css3-alt"
               style={{ color: "#FFD43B" }}
@@ -207,9 +208,15 @@ export default function Home() {
           </Box>
         </Box>
       </Container>
-      {/* <About />
-      <Projects/>
-      <Contact/> */}
+      <Box sx={{ pt: 15, pb: 10 }}>
+        <About />
+      </Box>
+      <Box sx={{ pt: 10, pb: 15 }}>
+        <Projects />
+      </Box>
+      <Box sx={{ pt: 15, pb: 10 }}>
+        <Contact />
+      </Box>
     </>
   );
 }

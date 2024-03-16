@@ -42,6 +42,7 @@
 /*  loader */
 
 .loader {
+ 
     height: 40px;
     aspect-ratio: 1.5;
     --c: #1bc78a 96%,#0000;
@@ -64,10 +65,9 @@
     75%   {background-position:0 0,50% 0,50% 100%,100% 100%}
     87.5% {background-position:0 0,50% 0,0 100%,100% 100%}
     100%  {background-position:0 0,50% 0,0 100%,50% 100%}
+    
   }
   
-
-
   /*  about_section */
 
 
