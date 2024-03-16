@@ -32,106 +32,70 @@ export default function Blog() {
     aboutInformation();
   }, []);
   return (
-    // <Container sx={{ py: { xs: 8, lg: 16 } }}>
-    //   <Box
-    //     sx={{
-    //       mx: "auto",
-    //       mb: { lg: 16, sm: 8 },
-    //       maxWidth: "sm",
-    //       textAlign: "center",
-    //     }}
-    //   >
-    //     <Typography
-    //       variant="h3"
-    //       component="h2"
-    //       mb={4}
-    //       sx={{ fontWeight: "extrabold" }}
-    //     >
-    //       Professional Journey
-    //     </Typography>
-    //     {/* <Typography variant="body1" color="text.secondary">
-    //       We use an agile approach to test assumptions and connect with the
-    //       needs of your audience early and often.
-    //     </Typography> */}
-    //   </Box>
-    //   <Grid container spacing={8}>
-    //     {state.blog.map((data, i) => (
-    //       <Grid item lg={6} key={i}>
-    //         <Box
-    //           sx={{
-    //             p: 6,
-    //             border: 1,
-    //             borderColor: "grey.200",
-    //             borderRadius: 1,
-    //             boxShadow: 1,
-    //           }}
-    //         >
-    //           <Typography
-    //             variant="h4"
-    //             component="h2"
-    //             mb={2}
-    //             sx={{ fontWeight: "bold" }}
-    //           >
-    //             {data.title}
-    //           </Typography>
-    //           <Typography variant="body2" color="text.secondary" mb={5}>
-    //             {data.aboutme}
-    //           </Typography>
-    //           <Box
-    //             sx={{
-    //               display: "flex",
-    //               justifyContent: "space-between",
-    //               alignItems: "center",
-    //             }}
-    //           >
-    //             <Box sx={{ display: "flex", alignItems: "center" }}>
-    //               <Avatar
-    //                 src={data.image}
-    //                 sx={{ width: 28, height: 28, mr: 1 }}
-    //               />
-    //               <Typography variant="subtitle1">{data.author}</Typography>
-    //             </Box>
-    //             <Button endIcon={<ArrowForward />} color="primary" size="small">
-    //               Read more
-    //             </Button>
-    //           </Box>
-    //         </Box>
-    //       </Grid>
-    //     ))}
-    //   </Grid>
-    // </Container>
-    <Container>
-      <Box sx={{ my: 5, textAlign: "center" }}>
-        <Typography variant="h4" component="h2" gutterBottom>
-          Our Blog
+    <Container sx={{ py: { xs: 8, lg: 16 } }}>
+      <Box
+        sx={{
+          mx: "auto",
+          mb: { lg: 16, sm: 8 },
+          maxWidth: "sm",
+          textAlign: "center",
+        }}
+      >
+        <Typography
+          variant="h3"
+          component="h2"
+          mb={4}
+          sx={{ fontWeight: "extrabold" }}
+        >
+          Professional Journey
         </Typography>
-        <Typography variant="subtitle1" color="text.secondary">
-          We share our best ideas in our blog
-        </Typography>
+        {/* <Typography variant="body1" color="text.secondary">
+          We use an agile approach to test assumptions and connect with the
+          needs of your audience early and often.
+        </Typography> */}
       </Box>
-      <Grid container spacing={4}>
-        {state.blog.map((post, index) => (
-          <Grid item xs={12} md={6} key={index}>
-            <Card sx={{ display: "flex" }}>
-              <CardMedia
-                component="img"
-                sx={{ width: 151 }}
-                image={post.image}
-                alt={post.title}
-              />
-              <Box sx={{ display: "flex", flexDirection: "column" }}>
-                <CardContent sx={{ flex: "1 0 auto" }}>
-                  <Typography component="h5" variant="h5">
-                    {post.title}
-                  </Typography>
-                  <Typography variant="subtitle1" color="text.secondary">
-                    {post.aboutme}
-                  </Typography>
-                </CardContent>
-                <Box sx={{ display: "flex", alignItems: "center", p: 1 }}>
+      <Grid container spacing={8}>
+        {state.blog.map((data, i) => (
+          <Grid item lg={6} key={i}>
+            <Box
+              sx={{
+                p: 6,
+                border: 1,
+                borderColor: "grey.200",
+                borderRadius: 1,
+                boxShadow: 1,
+              }}
+            >
+              <Typography
+                variant="h4"
+                component="h2"
+                mb={2}
+                sx={{ fontWeight: "bold" }}
+              >
+                {data.title}
+              </Typography>
+              <Typography variant="body2" color="text.secondary" mb={5}>
+                {data.aboutme}
+              </Typography>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
+                <Box sx={{ display: "flex", alignItems: "center" }}>
+                  <Avatar
+                    src={data.image}
+                    sx={{ width: 228, height: 228, mr: 1 }}
+                  />
+                  <Typography variant="subtitle1">{data.author}</Typography>
                 </Box>
+                <Button endIcon={<ArrowForward />} color="primary" size="small">
+                  Read more
+                </Button>
               </Box>
-            </Card>
+            </Box>
           </Grid>
         ))}
       </Grid>
