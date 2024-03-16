@@ -12,7 +12,6 @@ import Typography from "@mui/material/Typography";
 import About from "../About/index";
 import Projects from "../../components/Project";
 import Contact from "../Contact/index";
-
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -28,6 +27,7 @@ import {
   faGit,
   faGithub,
   faLinkedin,
+  faEnvira
 } from "@fortawesome/free-brands-svg-icons";
 
 library.add(
@@ -42,7 +42,8 @@ library.add(
   faPhp,
   faGit,
   faGithub,
-  faLinkedin
+  faLinkedin,
+  faEnvira,
 );
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -124,14 +125,19 @@ export default function Home() {
                       <Typography paddingLeft={2} lineHeight={1.5}>
                         <FontAwesomeIcon
                           icon="fa-brands fa-github"
-                          className=" iconSize"
+                          className=" iconSize "
                           style={{ color: "#000000" }}
+                          onClick={() => window.open(`${res.github}`, "_blank")}
+                          title="Click"
                         />
                         <FontAwesomeIcon
                           icon="fa-brands fa-linkedin"
                           style={{ color: "#0033ff" }}
+                          onClick={() =>
+                            window.open(`${res.linkedin}`, "_blank")
+                          }
                           className="iconStyle iconSize"
-                         
+                          title="Click"
                         />
                       </Typography>
                     </Box>
@@ -158,52 +164,68 @@ export default function Home() {
               icon="fa-brands fa-html5"
               style={{ color: "#ff3d3d" }}
               paddingLeft={2}
+              title="Hyper Text Markup Language"
             />
 
             <FontAwesomeIcon
               icon="fa-brands fa-css3-alt"
               style={{ color: "#FFD43B" }}
               className="iconStyle iconSize"
+              title="Cascade Style Sheet"
             />
             <FontAwesomeIcon
               icon="fa-brands fa-js"
               style={{ color: "#FFD43B" }}
               className="iconStyle iconSize"
+              title="JavaScript"
             />
             <FontAwesomeIcon
               icon="fa-brands fa-node"
               style={{ color: "#139028" }}
               className="iconStyle iconSize"
+              title="Node JS"
             />
             <FontAwesomeIcon
               icon="fa-brands fa-react"
               style={{ color: "#74C0FC" }}
               className="iconStyle iconSize"
+              title="React JS"
             />
             <FontAwesomeIcon
               icon="fa-brands fa-bootstrap"
               style={{ color: "#7244fd" }}
               className="iconStyle iconSize"
+              title="Bootstrap"
             />
             <FontAwesomeIcon
               icon="fa-brands fa-php"
               style={{ color: "#B197FC" }}
               className="iconStyle iconSize"
+              title="Hypertext Preprocessor"
             />
             <FontAwesomeIcon
               icon="fa-solid fa-database"
               style={{ color: "#000000" }}
               className="iconStyle iconSize"
+              title="DataBase"
             />
             <FontAwesomeIcon
               icon="fa-brands fa-git"
               style={{ color: "#ff4405" }}
               className="iconStyle iconSize"
+              title="version control system"
             />
             <FontAwesomeIcon
               icon="fa-brands fa-github"
               style={{ color: "#000000" }}
               className="iconStyle iconSize"
+              title="GitHub"
+            />
+            <FontAwesomeIcon
+              icon="fa-brands fa-envira"
+              style={{ color: "#4dff00" }}
+              className="iconStyle iconSize"
+              title="MongoDB"
             />
           </Box>
         </Box>

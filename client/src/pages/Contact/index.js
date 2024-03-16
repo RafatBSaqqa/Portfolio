@@ -19,6 +19,12 @@ import {
   updateContact,
 } from "../../Services/redux/reducers/Contact/contactSlice";
 import axios from "axios";
+import { fas, faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {} from "@fortawesome/free-brands-svg-icons";
+
+library.add(fas, faEnvelope, faPhone);
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
@@ -80,7 +86,10 @@ export default function Contact() {
                 <Grid item zeroMinWidth>
                   <Item xs={6}>
                     <Typography wrap p={2} variant="h6" component="h6">
-                      <MailIcon />
+                      <FontAwesomeIcon
+                        className="iconSize "
+                        icon="fa-solid fa-envelope"
+                      />
                     </Typography>
                     <Typography p={2} variant="h6" component="h6">
                       {res.mail}
@@ -90,7 +99,10 @@ export default function Contact() {
                 <Grid item zeroMinWidth>
                   <Item xs={6}>
                     <Typography p={2} variant="h6" component="h6">
-                      <LocalPhoneIcon />
+                      <FontAwesomeIcon
+                        className="iconSize "
+                        icon="fa-solid fa-phone"
+                      />
                     </Typography>
                     <Typography p={2} variant="h6" component="h6">
                       {res.phone}

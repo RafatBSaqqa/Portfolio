@@ -19,6 +19,7 @@
 }
 .iconSize{
     font-size:xx-large;
+    cursor: pointer;
 }
 .iconStyle {
     padding-left: 20px;

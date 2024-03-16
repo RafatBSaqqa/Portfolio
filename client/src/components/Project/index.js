@@ -34,9 +34,18 @@ export default function Project() {
 
   return (
     <Container style={state}>
+        <Typography
+          variant="h3"
+          component="h2"
+          mb={4}
+          sx={{ fontWeight: "extrabold" }}
+        >
+          Projects
+        </Typography>
       {state.project.map((res) => {
         return (
           <>
+          
             {loader ? (
               <Card
                 key={res.id}

@@ -3,7 +3,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import homeReducer from './reducers/Home/homeSlice'
 import contactReducer from "./reducers/Contact/contactSlice";
 import projectReducer from "./reducers/Project/projectSlice";
-import aboutReducer from "./reducers/About/aboutSlice";
+import blogReducer from "./reducers/Blog/blogSlice";
 import authReducer from "./reducers/Admin/adminSlice";
 import aboutMeReducer from "./reducers/AboutMe/aboutMeSlice";
 export default configureStore({
@@ -12,7 +12,7 @@ export default configureStore({
     home:homeReducer,
     contact:contactReducer,
     project:projectReducer,
-    about:aboutReducer,
+    blog:blogReducer,
     auth:authReducer,
     aboutMe:aboutMeReducer
   },
