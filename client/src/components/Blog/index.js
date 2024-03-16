@@ -87,9 +87,9 @@ export default function Blog() {
                   />
                   <Typography variant="subtitle1">{data.author}</Typography>
                 </Box>
-                <Button endIcon={<ArrowForward />} color="primary" size="small">
+                {/* <Button endIcon={<ArrowForward />} color="primary" size="small">
                   Read more
-                </Button>
+                </Button> */}
               </Box>
             </Box>
           </Grid>

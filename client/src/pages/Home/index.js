@@ -233,9 +233,9 @@ export default function Home() {
       <Box sx={{ pt: 15, pb: 10 }}>
         <About />
       </Box>
-      <Box sx={{ pt: 10, pb: 15 }}>
+      {/* <Box sx={{ pt: 10, pb: 15 }}> */}
         <Projects />
-      </Box>
+      {/* </Box> */}
       <Box sx={{ pt: 15, pb: 10 }}>
         <Contact />
       </Box>
