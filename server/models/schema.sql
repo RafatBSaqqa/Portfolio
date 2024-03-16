@@ -31,9 +31,9 @@ CREATE TABLE
 
 -- insert personal_information
 INSERT INTO
-  personal_information (position, bio, image)
+  personal_information (position, bio, image,github,linkedin)
 VALUES
-  ('Full-stack', 'Hello im Rafat Saqqa passion full stack web developer based in jordan','upload photo') RETURNING *;
+  ('Full-stack web developer', 'full stack web developer based in jordan.m enthusiastic about crafting user-friendly web experiences with a strong foundation. I stay updated on the latest trends and am eager to contribute to innovative projects.','http://res.cloudinary.com/dwenerokk/image/upload/v1710128694/sqizetuxp7grhyweyhu9.jpg','https://github.com/RafatBSaqqa','https://www.linkedin.com/in/rafat-saqqa/') RETURNING *;
 
 --  //////////////////////////////////////////////////////////
 

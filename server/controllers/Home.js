@@ -18,11 +18,11 @@ const getPersonalInformation = async (req, res) => {
 };
 
 const updatePersonalInformation = async (req, res) => {
-  const { position, bio, image } = req.body;
-  const placeholder = [position, bio, image];
+  const { position, bio, image, github, linkedin } = req.body;
+  const placeholder = [position, bio, image, github, linkedin];
   try {
     const updateInformation = await pool.query(
-      `UPDATE personal_information SET (position,bio,image) = ( COALESCE($1, position), COALESCE($2, bio), COALESCE($3, image) ) RETURNING *`,
+      `UPDATE personal_information SET (position,bio,image,github,linkedin) = ( COALESCE($1, position), COALESCE($2, bio), COALESCE($3, image), COALESCE($4, github), COALESCE($5, linkedin) ) RETURNING *`,
       placeholder
     );
     res.status(200).json({
