@@ -84,6 +84,7 @@ export default function CreateProjects() {
         </Button>
       </Box>
       <TextField
+      fullWidth
         id="standard-basic"
         onChange={(e) => {
           setDescription(e.target.value);
@@ -93,6 +94,7 @@ export default function CreateProjects() {
       />
       <br />
       <TextField
+      fullWidth
         id="standard-basic"
         onChange={(e) => {
           setGithubrepo(e.target.value);
@@ -102,6 +104,7 @@ export default function CreateProjects() {
       />
       <br />
       <TextField
+      fullWidth
         id="standard-basic"
         onChange={(e) => {
           setLiveview(e.target.value);

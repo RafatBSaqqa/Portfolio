@@ -81,6 +81,7 @@ export default function EditHome() {
         </Button>
       </Box>
       <TextField
+      fullWidth 
         id="standard-basic"
         onChange={(e) => {
           setBio(e.target.value);

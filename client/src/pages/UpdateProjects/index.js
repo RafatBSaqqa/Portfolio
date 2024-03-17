@@ -113,6 +113,7 @@ export default function CreateProjects() {
           onChange={(e) => {
             setGithubrepo(e.target.value);
           }}
+          fullWidth
           label="GitHub Repo Link"
           variant="standard"
         />
@@ -124,6 +125,7 @@ export default function CreateProjects() {
           }}
           label="Live View Link"
           variant="standard"
+          fullWidth
         />
         {Done && <Alert severity="success">Changed successfully</Alert>}
         <Button onClick={() => {

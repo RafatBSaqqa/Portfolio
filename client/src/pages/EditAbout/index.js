@@ -26,11 +26,15 @@ export default function EditAbout() {
     };
     console.log(updateData);
     try {
-      const update = await axios.put(`http://localhost:5000/about`, updateData, {
-        headers: {
-          authorization: `Bearer ${state.auth}`,
-        },
-      });
+      const update = await axios.put(
+        `http://localhost:5000/about`,
+        updateData,
+        {
+          headers: {
+            authorization: `Bearer ${state.auth}`,
+          },
+        }
+      );
       setDone(true);
     } catch (error) {
       console.log(error);
@@ -82,6 +86,7 @@ export default function EditAbout() {
         </Button>
       </Box>
       <TextField
+        fullWidth
         id="standard-basic"
         onChange={(e) => {
           setAboutMe(e.target.value);
