@@ -8,7 +8,7 @@ const authorization = require('../middleware/authorization')
 const blogRouter = express.Router();
 
 blogRouter.get('/',getBlogInformation)
-blogRouter.put('/',authentication,authorization('MANAGE_SITE'),updateBlogInformation)
+blogRouter.put('/:id',authentication,authorization('MANAGE_SITE'),updateBlogInformation)
 
 
 module.exports = blogRouter

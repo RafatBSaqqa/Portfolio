@@ -18,12 +18,13 @@ const getBlogInformation = async (req, res) => {
 };
 
 const updateBlogInformation = async (req, res) => {
-  const { aboutMe, title, image } = req.body;
-  const placeholder = [aboutMe, title, image];
+  const {id} = req.params
+  const { aboutme, title, image } = req.body;
+  const placeholder = [aboutme, title, image,id];
   console.log(placeholder);
   try {
     const updateInformation = await pool.query(
-      `UPDATE blog SET ( aboutMe,title,image) = (COALESCE($1, aboutMe),COALESCE($2, title),COALESCE($3, image) ) WHERE id =1 RETURNING *`,
+      `UPDATE blog SET ( aboutme,title,image,id) = (COALESCE($1, aboutMe),COALESCE($2, title),COALESCE($3, image) ) WHERE id =$4 RETURNING *`,
       placeholder
     );
     res.status(200).json({

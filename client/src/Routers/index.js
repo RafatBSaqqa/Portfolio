@@ -13,6 +13,7 @@ import EditContact from "../pages/EditContact";
 import CreateProjects from "../pages/CreateProjects";
 import DeleteProjects from "../pages/DeleteProjects";
 import UpdateProjects from "../pages/UpdateProjects";
+import EditBlog from "../pages/EditBlog";
 
 export const router = createBrowserRouter([
   {
@@ -41,8 +42,9 @@ export const router = createBrowserRouter([
       { path: "/dashboard/DeleteProjects", element: <DeleteProjects /> },
       ,
       { path: "/dashboard/UpdateProjects", element: <UpdateProjects /> },
-      
-    ], 
+      ,
+      { path: "/dashboard/UpdateBlog", element: <EditBlog /> },
+    ],
   },
   {
     path: "*",

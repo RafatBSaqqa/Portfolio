@@ -77,6 +77,14 @@ export default function ListItems() {
       </ListItemButton>
       <ListItemButton>
         <ListItemIcon>
+          <LayersIcon />
+        </ListItemIcon>
+        <NavLink className={"mobile-links"} to={"/dashboard/UpdateBlog"}>
+          <ListItemText primary="Update Blog" />
+        </NavLink>
+      </ListItemButton>
+      <ListItemButton>
+        <ListItemIcon>
           <SettingsIcon />
         </ListItemIcon>
         <ListItemText onClick={handleLogout} primary="Logout" />
