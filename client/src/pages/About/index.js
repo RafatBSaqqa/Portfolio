@@ -18,7 +18,7 @@ export default function About() {
 
   const aboutMeInformation = async () => {
     try {
-      const result = await axios.get("http://localhost:5000/aboutme");
+      const result = await axios.get("https://portfolio-41ta.onrender.com//aboutme");
       dispatch(setAboutMe(result.data.result));
     } catch (error) {}
   };

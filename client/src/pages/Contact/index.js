@@ -63,7 +63,7 @@ export default function Contact() {
   });
   const contactInformation = async () => {
     try {
-      const result = await axios.get("http://localhost:5000/contact");
+      const result = await axios.get("https://portfolio-41ta.onrender.com//contact");
       dispatch(setContact(result.data.result));
     } catch (error) {}
   };

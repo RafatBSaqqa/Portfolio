@@ -23,7 +23,7 @@ export default function Project() {
   });
   const projectsInformation = async () => {
     try {
-      const result = await axios.get("http://localhost:5000/projects");
+      const result = await axios.get("https://portfolio-41ta.onrender.com//projects");
       dispatch(setProject(result.data.result));
       setLoader(true);
     } catch (error) {}

@@ -17,7 +17,7 @@ export default function EditBlog() {
     });
     const BlogInformation = async () => {
         try {
-          const result = await axios.get(`http://localhost:5000/blog`);
+          const result = await axios.get(`https://portfolio-41ta.onrender.com//blog`);
           dispatch(setBlog(result.data.result));
         } catch (error) {
           console.log(error);
@@ -36,7 +36,7 @@ export default function EditBlog() {
     };
     console.log(updateData);
     try {
-      const update = await axios.put(`http://localhost:5000/blog/${blogId}`, updateData, {
+      const update = await axios.put(`https://portfolio-41ta.onrender.com//blog/${blogId}`, updateData, {
         headers: {
           authorization: `Bearer ${state.auth}`,
         },

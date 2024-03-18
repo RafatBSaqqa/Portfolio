@@ -119,7 +119,7 @@ export default function Home() {
   });
   const homeInformation = async () => {
     try {
-      const result = await axios.get("http://localhost:5000/home");
+      const result = await axios.get("https://portfolio-41ta.onrender.com//home");
       dispatch(setHome(result.data.result));
       setLoader(true);
     } catch (error) {}

@@ -21,7 +21,7 @@ export default function CreateProjects() {
   const [liveview, setLiveview] = useState(null);
   const projectsInformation = async () => {
     try {
-      const result = await axios.get("http://localhost:5000/projects");
+      const result = await axios.get("https://portfolio-41ta.onrender.com//projects");
       dispatch(setProject(result.data.result));
     } catch (error) {}
   };
@@ -38,7 +38,7 @@ export default function CreateProjects() {
       liveview: liveview,
     };
     try {
-      const result = await axios.put(`http://localhost:5000/projects/${projectId}`, Update, {
+      const result = await axios.put(`https://portfolio-41ta.onrender.com//projects/${projectId}`, Update, {
         headers: {
           authorization: `Bearer ${state.auth}`,
         },

@@ -19,7 +19,7 @@ export default function Blog() {
   });
   const aboutInformation = async () => {
     try {
-      const result = await axios.get("http://localhost:5000/blog");
+      const result = await axios.get("https://portfolio-41ta.onrender.com//blog");
       dispatch(setBlog(result.data.result));
       console.log(result);
     } catch (error) {}

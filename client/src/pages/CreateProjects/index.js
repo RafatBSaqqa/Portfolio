@@ -26,7 +26,7 @@ export default function CreateProjects() {
       liveview: liveview,
     };
     try {
-      const result = await axios.post(`http://localhost:5000/projects`, Create, {
+      const result = await axios.post(`https://portfolio-41ta.onrender.com//projects`, Create, {
         headers: {
           authorization: `Bearer ${state.auth}`,
         },

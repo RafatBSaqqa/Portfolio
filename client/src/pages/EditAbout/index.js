@@ -23,7 +23,7 @@ export default function EditAbout() {
     };
     try {
       const update = await axios.put(
-        `http://localhost:5000/aboutme`,
+        `https://portfolio-41ta.onrender.com//aboutme`,
         updateData,
         {
           headers: {

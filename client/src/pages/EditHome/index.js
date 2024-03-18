@@ -25,7 +25,7 @@ export default function EditHome() {
       image: url,
     };
     try {
-      const result = await axios.put(`http://localhost:5000/home`, create, {
+      const result = await axios.put(`https://portfolio-41ta.onrender.com//home`, create, {
         headers: {
           authorization: `Bearer ${state.auth}`,
         },
