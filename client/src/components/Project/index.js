@@ -34,18 +34,17 @@ export default function Project() {
 
   return (
     <Container style={state}>
-        <Typography
-          variant="h3"
-          component="h2"
-          mb={4}
-          sx={{ fontWeight: "extrabold" }}
-        >
-          Projects
-        </Typography>
+      <Typography
+        variant="h3"
+        component="h2"
+        mb={4}
+        sx={{ fontWeight: "extrabold", textAlign: "center" }}
+      >
+        Projects
+      </Typography>
       {state.project.map((res) => {
         return (
           <>
-          
             {loader ? (
               <Card
                 key={res.id}
@@ -124,15 +123,17 @@ export default function Project() {
                 </Box>
               </Card>
             ) : (
-              <Box sx={{
-                display: "flex",
-                justifyContent: "center",
-                p: 4,
-                m: 1,
-                bgcolor: "background.paper",
-                // borderRadius: 1,
-                flexWrap: "wrap",
-              }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  p: 4,
+                  m: 1,
+                  bgcolor: "background.paper",
+                  // borderRadius: 1,
+                  flexWrap: "wrap",
+                }}
+              >
                 <div class="loader"></div>
               </Box>
             )}
