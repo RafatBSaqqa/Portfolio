@@ -70,7 +70,7 @@ export default function Blog() {
               >
                 {data.title}
               </Typography>
-              <Typography variant="body2" color="text.secondary" mb={5}>
+              <Typography  variant="body2" color="text.secondary" mb={5}>
                 {data.aboutme}
               </Typography>
               <Box
@@ -81,15 +81,14 @@ export default function Blog() {
                 }}
               >
                 <Box sx={{ display: "flex", alignItems: "center" }}>
-                  <Avatar
+                  <img  width={228} height={328} src={data.image}/>
+                  {/* <Avatar
                     src={data.image}
-                    sx={{ width: 228, height: 228, mr: 1 }}
-                  />
+                    sx={{ width: 128, height: 128, mr: 1 }}
+                  /> */}
                   <Typography variant="subtitle1">{data.author}</Typography>
                 </Box>
-                {/* <Button endIcon={<ArrowForward />} color="primary" size="small">
-                  Read more
-                </Button> */}
+         
               </Box>
             </Box>
           </Grid>

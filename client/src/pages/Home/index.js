@@ -27,7 +27,7 @@ import {
   faGit,
   faGithub,
   faLinkedin,
-  faEnvira
+  faEnvira,
 } from "@fortawesome/free-brands-svg-icons";
 
 library.add(
@@ -43,7 +43,7 @@ library.add(
   faGit,
   faGithub,
   faLinkedin,
-  faEnvira,
+  faEnvira
 );
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -53,6 +53,61 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
   flexWrap: "wrap",
 }));
+const COLORS = [
+  "#bbf7d0",
+  "#99f6e4",
+  "#bfdbfe",
+  "#ddd6fe",
+  "#f5d0fe",
+  "#fed7aa",
+  "#fee2e2",
+];
+const TAGS = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "Typescript",
+  "Jquery",
+  "Bootstrap",
+  "React.js",
+  "Next.js",
+  "Node.js",
+  "UI/UX",
+  "Redux",
+  "Animation",
+  "Webdev",
+  "OOP"
+];
+const DURATION = 25000;
+const ROWS = 1;
+const TAGS_PER_ROW = 14;
+
+const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+const shuffle = (arr) => [...arr].sort(() => 0.5 - Math.random());
+
+const InfiniteLoopSlider = ({ children, duration, reverse = false }) => {
+  return (
+    <div
+      className="loop-slider"
+      style={{
+        "--duration": `${duration}ms`,
+        "--direction": reverse ? "reverse" : "normal",
+      }}
+    >
+      <div className="inner">
+        {children}
+        {children}
+      </div>
+    </div>
+  );
+};
+
+const Tag = ({ text }) => (
+  <div className="tag">
+    <span>#</span> {text}
+    <FontAwesomeIcon  paddingLeft={2}  className="iconSize iconStyle" icon="fa-solid fa-code" />
+  </div>
+);
 
 export default function Home() {
   const [loader, setLoader] = useState(false);
@@ -101,9 +156,7 @@ export default function Home() {
                         variant="h5"
                         component="h4"
                         style={{ color: "#000000" }}
-                      >
-                        Hello. I'm Rafat
-                      </Typography>
+                      ></Typography>
                       <Typography
                         paddingTop={2}
                         paddingLeft={2}
@@ -112,7 +165,23 @@ export default function Home() {
                         component="h1"
                         style={{ color: "#1bc78a" }}
                       >
-                        {res.position}
+                        <div class="main">
+                          <h3>
+                            Hello. I'm Rafat:
+                            <div class="roller">
+                              <span id="rolltext">
+                                Back-end
+                                <br />
+                                Front-end
+                                <br />
+                                Developer
+                                <br />
+                                <span id="spare-time">{res.position}</span>
+                                <br />
+                              </span>
+                            </div>
+                          </h3>
+                        </div>
                       </Typography>
                       <Typography
                         padding={2}
@@ -158,7 +227,25 @@ export default function Home() {
         </Box>
         <Box sx={{ textAlign: "center" }}>
           <Typography padding={1}>Tech Stack:</Typography>
-          <Box sx={{ pt: 2 }}>
+          <div className="app">
+            <div className="tag-list">
+              {[...new Array(ROWS)].map((_, i) => (
+                <InfiniteLoopSlider
+                  key={i}
+                  duration={random(DURATION - 5000, DURATION + 5000)}
+                  reverse={i % 2}
+                >
+                  {shuffle(TAGS)
+                    .slice(0, TAGS_PER_ROW)
+                    .map((tag) => (
+                      <Tag text={tag} key={tag} />
+                    ))}
+                </InfiniteLoopSlider>
+              ))}
+              <div className="fade" />
+            </div>
+          </div>
+          {/* <Box sx={{ pt: 2 }}>
             <FontAwesomeIcon
               className="iconSize iconStyle"
               icon="fa-brands fa-html5"
@@ -227,14 +314,14 @@ export default function Home() {
               className="iconStyle iconSize"
               title="MongoDB"
             />
-          </Box>
+          </Box> */}
         </Box>
       </Container>
       <Box sx={{ pt: 15, pb: 10 }}>
         <About />
       </Box>
       {/* <Box sx={{ pt: 10, pb: 15 }}> */}
-        <Projects />
+      <Projects />
       {/* </Box> */}
       <Box sx={{ pt: 15, pb: 10 }}>
         <Contact />

@@ -38,7 +38,7 @@ export default function About() {
                       pt: 5,
                     }}
                   >
-                    <Typography variant="h4" component="h1">
+                    <Typography className="anim" variant="h4" component="h1">
                       {res.title}
                     </Typography>
                   </Box>
