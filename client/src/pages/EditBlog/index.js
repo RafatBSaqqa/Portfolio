@@ -17,7 +17,7 @@ export default function EditBlog() {
     });
     const BlogInformation = async () => {
         try {
-          const result = await axios.get(`https://portfolio-41ta.onrender.com//blog`);
+          const result = await axios.get(`https://rafat-saqqa.onrender.com/blog`);
           dispatch(setBlog(result.data.result));
         } catch (error) {
           console.log(error);
@@ -36,7 +36,7 @@ export default function EditBlog() {
     };
     console.log(updateData);
     try {
-      const update = await axios.put(`https://portfolio-41ta.onrender.com//blog/${blogId}`, updateData, {
+      const update = await axios.put(`https://rafat-saqqa.onrender.com/blog/${blogId}`, updateData, {
         headers: {
           authorization: `Bearer ${state.auth}`,
         },

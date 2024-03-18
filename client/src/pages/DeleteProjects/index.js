@@ -14,7 +14,7 @@ export default function DeleteProjects() {
 
   const changeData = async () => {
     try {
-      const result = await axios.put(`https://portfolio-41ta.onrender.com//home`, {
+      const result = await axios.put(`https://rafat-saqqa.onrender.com/home`, {
         headers: {
           authorization: `Bearer ${state.auth}`,
         },

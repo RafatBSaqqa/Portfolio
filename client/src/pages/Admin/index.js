@@ -47,7 +47,7 @@ export default function Admin() {
 
    const loginAdmin = async () => {   
     try {
-         const admin = await axios.post(`https://portfolio-41ta.onrender.com//admin`, {
+         const admin = await axios.post(`https://rafat-saqqa.onrender.com/admin`, {
             email,
             password
           });   

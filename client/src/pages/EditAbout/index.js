@@ -23,7 +23,7 @@ export default function EditAbout() {
     };
     try {
       const update = await axios.put(
-        `https://portfolio-41ta.onrender.com//aboutme`,
+        `https://rafat-saqqa.onrender.com/aboutme`,
         updateData,
         {
           headers: {
