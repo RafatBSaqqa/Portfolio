@@ -6,7 +6,6 @@ import { setAboutMe } from "../../Services/redux/reducers/AboutMe/aboutMeSlice";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-import Blog from "../../components/Blog";
 
 export default function About() {
   const dispatch = useDispatch();
@@ -58,7 +57,6 @@ export default function About() {
           </Box>
         </Container>
       </Box>
-      <Blog />
     </>
   );
 }

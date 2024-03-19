@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setHome } from "../../Services/redux/reducers/Home/homeSlice";
 
 // STYLE Material-UI
+import Logo from "../../img/person.jpeg"
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -76,11 +77,16 @@ const TAGS = [
   "Redux",
   "Animation",
   "Webdev",
-  "OOP"
+  "OOP",
+  "SQL",
+  "xampp",
+  ".Net",
+  "C#",
+  "RESTful API"
 ];
-const DURATION = 25000;
+const DURATION = 35000;
 const ROWS = 1;
-const TAGS_PER_ROW = 14;
+const TAGS_PER_ROW = 19;
 
 const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 const shuffle = (arr) => [...arr].sort(() => 0.5 - Math.random());
@@ -176,7 +182,7 @@ export default function Home() {
                                 <br />
                                 Developer
                                 <br />
-                                <span id="spare-time">{res.position}</span>
+                                <span id="spare-time">Full-stack web developer</span>
                                 <br />
                               </span>
                             </div>
@@ -189,21 +195,21 @@ export default function Home() {
                         variant="subtitle2"
                         component="h6"
                       >
-                        {res.bio}
+                        full stack web developer based in jordan.m enthusiastic about crafting user-friendly web experiences with a strong foundation. I stay updated on the latest trends and am eager to contribute to innovative projects.
                       </Typography>
                       <Typography paddingLeft={2} lineHeight={1.5}>
                         <FontAwesomeIcon
                           icon="fa-brands fa-github"
                           className=" iconSize "
                           style={{ color: "#000000" }}
-                          onClick={() => window.open(`${res.github}`, "_blank")}
+                          onClick={() => window.open(`https://github.com/RafatBSaqqa`, "_blank")}
                           title="Click"
                         />
                         <FontAwesomeIcon
                           icon="fa-brands fa-linkedin"
                           style={{ color: "#0033ff" }}
                           onClick={() =>
-                            window.open(`${res.linkedin}`, "_blank")
+                            window.open(`https://www.linkedin.com/in/rafat-saqqa/`, "_blank")
                           }
                           className="iconStyle iconSize"
                           title="Click"
@@ -214,7 +220,7 @@ export default function Home() {
                       <img
                         className={"img_home"}
                         width={150}
-                        src={`${res.image}`}
+                        src={`${Logo}`}
                       />
                     </Typography>
                   </>
