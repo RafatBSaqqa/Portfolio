@@ -1,24 +1,14 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 import { useState, useRef } from "react";
 import Alert from "@mui/material/Alert";
 import emailjs from "@emailjs/browser";
-import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
-import MailIcon from "@mui/icons-material/Mail";
-import {
-  setContact,
-  updateContact,
-} from "../../Services/redux/reducers/Contact/contactSlice";
-import axios from "axios";
 import { fas, faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -55,65 +45,47 @@ export default function Contact() {
         }
       );
   };
-  const dispatch = useDispatch();
-  const state = useSelector((state) => {
-    return {
-      contact: state.contact.contact,
-    };
-  });
-  const contactInformation = async () => {
-    try {
-      const result = await axios.get("https://rafat-saqqa.onrender.com/contact");
-      dispatch(setContact(result.data.result));
-    } catch (error) {}
-  };
-  useEffect(() => {
-    contactInformation();
-  }, []);
-  console.log(form);
+
   return (
     <div>
-      {state.contact.map((res) => {
-        return (
-          <Container key={res.id}>
-            <Box>
-              <Grid
-                container
-                rowSpacing={1}
-                columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-                justifyContent="center"
-              >
-                <Grid item zeroMinWidth>
-                  <Item xs={6}>
-                    <Typography wrap p={2} variant="h6" component="h6">
-                      <FontAwesomeIcon
-                        className="iconSize "
-                        icon="fa-solid fa-envelope"
-                      />
-                    </Typography>
-                    <Typography p={2} variant="h6" component="h6">
-                      {res.mail}
-                    </Typography>
-                  </Item>
-                </Grid>
-                <Grid item zeroMinWidth>
-                  <Item xs={6}>
-                    <Typography p={2} variant="h6" component="h6">
-                      <FontAwesomeIcon
-                        className="iconSize "
-                        icon="fa-solid fa-phone"
-                      />
-                    </Typography>
-                    <Typography p={2} variant="h6" component="h6">
-                      {res.phone}
-                    </Typography>
-                  </Item>
-                </Grid>
-              </Grid>
-            </Box>
-          </Container>
-        );
-      })}
+      <Container>
+        <Box>
+          <Grid
+            container
+            rowSpacing={1}
+            columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+            justifyContent="center"
+          >
+            <Grid item zeroMinWidth>
+              <Item xs={6}>
+                <Typography wrap p={2} variant="h6" component="h6">
+                  <FontAwesomeIcon
+                    className="iconSize "
+                    icon="fa-solid fa-envelope"
+                  />
+                </Typography>
+                <Typography p={2} variant="h6" component="h6">
+                  Raafat.saqqa@gmail.com
+                </Typography>
+              </Item>
+            </Grid>
+            <Grid item zeroMinWidth>
+              <Item xs={6}>
+                <Typography p={2} variant="h6" component="h6">
+                  <FontAwesomeIcon
+                    className="iconSize "
+                    icon="fa-solid fa-phone"
+                  />
+                </Typography>
+                <Typography p={2} variant="h6" component="h6">
+                  00962777396184
+                </Typography>
+              </Item>
+            </Grid>
+          </Grid>
+        </Box>
+      </Container>
+
       <Box
         sx={{
           display: "flex",
