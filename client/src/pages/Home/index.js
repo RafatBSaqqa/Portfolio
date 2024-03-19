@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setHome } from "../../Services/redux/reducers/Home/homeSlice";
 
 // STYLE Material-UI
-import Logo from "../../img/person.jpeg"
+import Logo from "../../img/person.jpeg";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -46,23 +46,6 @@ library.add(
   faLinkedin,
   faEnvira
 );
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "left",
-  color: theme.palette.text.secondary,
-  flexWrap: "wrap",
-}));
-const COLORS = [
-  "#bbf7d0",
-  "#99f6e4",
-  "#bfdbfe",
-  "#ddd6fe",
-  "#f5d0fe",
-  "#fed7aa",
-  "#fee2e2",
-];
 const TAGS = [
   "HTML",
   "CSS",
@@ -82,7 +65,7 @@ const TAGS = [
   "xampp",
   ".Net",
   "C#",
-  "RESTful API"
+  "RESTful API",
 ];
 const DURATION = 35000;
 const ROWS = 1;
@@ -111,28 +94,16 @@ const InfiniteLoopSlider = ({ children, duration, reverse = false }) => {
 const Tag = ({ text }) => (
   <div className="tag">
     <span>#</span> {text}
-    <FontAwesomeIcon  paddingLeft={2}  className="iconSize iconStyle" icon="fa-solid fa-code" />
+    <FontAwesomeIcon
+      paddingLeft={2}
+      className="iconSize iconStyle"
+      icon="fa-solid fa-code"
+    />
   </div>
 );
 
 export default function Home() {
   const [loader, setLoader] = useState(false);
-  const dispatch = useDispatch();
-  const state = useSelector((state) => {
-    return {
-      home: state.home.home,
-    };
-  });
-  const homeInformation = async () => {
-    try {
-      const result = await axios.get("https://rafat-saqqa.onrender.com/home");
-      dispatch(setHome(result.data.result));
-      setLoader(true);
-    } catch (error) {}
-  };
-  useEffect(() => {
-    homeInformation();
-  }, []);
 
   return (
     <>
@@ -148,88 +119,81 @@ export default function Home() {
             flexWrap: "wrap",
           }}
         >
-          {state.home.map((res) => {
-            return (
-              <>
-                {loader ? (
-                  <>
-                    {" "}
-                    <Box width={450}>
-                      <Typography
-                        paddingTop={2}
-                        paddingLeft={2}
-                        lineHeight={1.3}
-                        variant="h5"
-                        component="h4"
-                        style={{ color: "#000000" }}
-                      ></Typography>
-                      <Typography
-                        paddingTop={2}
-                        paddingLeft={2}
-                        lineHeight={1.3}
-                        variant="h4"
-                        component="h1"
-                        style={{ color: "#1bc78a" }}
-                      >
-                        <div class="main">
-                          <h3>
-                            Hello. I'm Rafat:
-                            <div class="roller">
-                              <span id="rolltext">
-                                Back-end
-                                <br />
-                                Front-end
-                                <br />
-                                Developer
-                                <br />
-                                <span id="spare-time">Full-stack web developer</span>
-                                <br />
-                              </span>
-                            </div>
-                          </h3>
-                        </div>
-                      </Typography>
-                      <Typography
-                        padding={2}
-                        lineHeight={1.5}
-                        variant="subtitle2"
-                        component="h6"
-                      >
-                        full stack web developer based in jordan.m enthusiastic about crafting user-friendly web experiences with a strong foundation. I stay updated on the latest trends and am eager to contribute to innovative projects.
-                      </Typography>
-                      <Typography paddingLeft={2} lineHeight={1.5}>
-                        <FontAwesomeIcon
-                          icon="fa-brands fa-github"
-                          className=" iconSize "
-                          style={{ color: "#000000" }}
-                          onClick={() => window.open(`https://github.com/RafatBSaqqa`, "_blank")}
-                          title="Click"
-                        />
-                        <FontAwesomeIcon
-                          icon="fa-brands fa-linkedin"
-                          style={{ color: "#0033ff" }}
-                          onClick={() =>
-                            window.open(`https://www.linkedin.com/in/rafat-saqqa/`, "_blank")
-                          }
-                          className="iconStyle iconSize"
-                          title="Click"
-                        />
-                      </Typography>
-                    </Box>
-                    <Typography padding={1}>
-                      <img
-                        className={"img_home"}
-                        width={150}
-                        src={`${Logo}`}
-                      />
-                    </Typography>
-                  </>
-                ) : (
-                  <div class="loader"></div>
-                )}
-              </>
-            );
-          })}
+          <>
+            <Box width={450}>
+              <Typography
+                paddingTop={2}
+                paddingLeft={2}
+                lineHeight={1.3}
+                variant="h5"
+                component="h4"
+                style={{ color: "#000000" }}
+              ></Typography>
+              <Typography
+                paddingTop={2}
+                paddingLeft={2}
+                lineHeight={1.3}
+                variant="h4"
+                component="h1"
+                style={{ color: "#1bc78a" }}
+              >
+                <div class="main">
+                  <h3>
+                    Hello. I'm Rafat:
+                    <div class="roller">
+                      <span id="rolltext">
+                        Back-end
+                        <br />
+                        Front-end
+                        <br />
+                        Developer
+                        <br />
+                        <span id="spare-time">Full-stack web developer</span>
+                        <br />
+                      </span>
+                    </div>
+                  </h3>
+                </div>
+              </Typography>
+              <Typography
+                padding={2}
+                lineHeight={1.5}
+                variant="subtitle2"
+                component="h6"
+              >
+                full stack web developer based in jordan.m enthusiastic about
+                crafting user-friendly web experiences with a strong foundation.
+                I stay updated on the latest trends and am eager to contribute
+                to innovative projects.
+              </Typography>
+              <Typography paddingLeft={2} lineHeight={1.5}>
+                <FontAwesomeIcon
+                  icon="fa-brands fa-github"
+                  className=" iconSize "
+                  style={{ color: "#000000" }}
+                  onClick={() =>
+                    window.open(`https://github.com/RafatBSaqqa`, "_blank")
+                  }
+                  title="Click"
+                />
+                <FontAwesomeIcon
+                  icon="fa-brands fa-linkedin"
+                  style={{ color: "#0033ff" }}
+                  onClick={() =>
+                    window.open(
+                      `https://www.linkedin.com/in/rafat-saqqa/`,
+                      "_blank"
+                    )
+                  }
+                  className="iconStyle iconSize"
+                  title="Click"
+                />
+              </Typography>
+            </Box>
+            <Typography padding={1}>
+              <img className={"img_home"} width={150} src={`${Logo}`} />
+            </Typography>
+          </>
         </Box>
         <Box sx={{ textAlign: "center" }}>
           <Typography padding={1}>Tech Stack:</Typography>
