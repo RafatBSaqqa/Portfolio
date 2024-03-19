@@ -1,36 +1,16 @@
-import axios from "axios";
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 
-import { setAboutMe } from "../../Services/redux/reducers/AboutMe/aboutMeSlice";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 
 export default function About() {
-  const dispatch = useDispatch();
-  const state = useSelector((state) => {
-    return {
-      aboutMe: state.aboutMe.aboutMe,
-    };
-  });
-
-  const aboutMeInformation = async () => {
-    try {
-      const result = await axios.get("https://rafat-saqqa.onrender.com/aboutme");
-      dispatch(setAboutMe(result.data.result));
-    } catch (error) {}
-  };
-  useEffect(() => {
-    aboutMeInformation();
-  }, []);
+ 
   return (
     <>
       <Box className="about_section">
         <Container>
           <Box>
-            {state.aboutMe.map((res) => {
-              return (
                 <>
                   <Box
                     sx={{
@@ -38,7 +18,7 @@ export default function About() {
                     }}
                   >
                     <Typography className="anim" variant="h4" component="h1">
-                      {res.title}
+                      ABOUT ME
                     </Typography>
                   </Box>
                   <Box
@@ -48,12 +28,18 @@ export default function About() {
                     }}
                   >
                     <Typography variant="subtitle1" component="h1">
-                      {res.aboutme}
+                      Hi there! I'm Rafat Saqqa, a passionate full-stack web
+                      developer with a knack for creating intuitive, efficient,
+                      and visually appealing web solutions. With 1 year of
+                      experience in the industry, I thrive on turning ideas into
+                      reality through the power of coding. Whether it's crafting
+                      sleek front-end interfaces or architecting robust back-end
+                      systems, I'm dedicated to delivering high-quality,
+                      scalable solutions that exceed expectations. Let's
+                      collaborate and bring your digital visions to life!
                     </Typography>
                   </Box>
                 </>
-              );
-            })}
           </Box>
         </Container>
       </Box>
