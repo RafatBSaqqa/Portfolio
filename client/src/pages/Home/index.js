@@ -1,7 +1,4 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-import { setHome } from "../../Services/redux/reducers/Home/homeSlice";
+import React, { useState } from "react";
 
 // STYLE Material-UI
 import Logo from "../../img/person.jpeg";
@@ -13,98 +10,48 @@ import Typography from "@mui/material/Typography";
 import About from "../About/index";
 import Projects from "../../components/Project";
 import Contact from "../Contact/index";
-import { fas } from "@fortawesome/free-solid-svg-icons";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faJs,
-  faFontAwesome,
-  faHtml5,
-  faCss3Alt,
-  faNode,
-  faReact,
-  faBootstrap,
-  faPhp,
-  faGit,
-  faGithub,
-  faLinkedin,
-  faEnvira,
-} from "@fortawesome/free-brands-svg-icons";
+import Badge from "@mui/material/Badge";
+import { FaHtml5 } from "react-icons/fa6";
+import { FaCss3Alt } from "react-icons/fa";
+import { BiLogoJquery } from "react-icons/bi";
+import { IoLogoJavascript } from "react-icons/io5";
+import { SiExpress } from "react-icons/si";
+import { DiMongodb } from "react-icons/di";
+import { FaReact } from "react-icons/fa";
+import { BiLogoPostgresql } from "react-icons/bi";
+import { FaGitAlt } from "react-icons/fa";
+import { TbBrandRedux } from "react-icons/tb";
+import { FaNode } from "react-icons/fa";
+import { SiWebpack } from "react-icons/si";
+import { FaBootstrap } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+import { BiSolidFileJson } from "react-icons/bi";
+import { SiSocketdotio } from "react-icons/si";
+import { TbFileTypeSql } from "react-icons/tb";
+import { SiVisualstudiocode } from "react-icons/si";
+import { FaPhp } from "react-icons/fa6";
+import { FaLaravel } from "react-icons/fa";
+import { FaSearchengin } from "react-icons/fa6";
+import { TbBrandCSharp } from "react-icons/tb";
+import { FaFacebook } from "react-icons/fa";
+import { SiBabel } from "react-icons/si";
+import { MdHttp } from "react-icons/md";
+import { SiPostman } from "react-icons/si";
 
-library.add(
-  fas,
-  faFontAwesome,
-  faHtml5,
-  faCss3Alt,
-  faNode,
-  faJs,
-  faReact,
-  faBootstrap,
-  faPhp,
-  faGit,
-  faGithub,
-  faLinkedin,
-  faEnvira
-);
-const TAGS = [
-  "HTML",
-  "CSS",
-  "JavaScript",
-  "Typescript",
-  "Jquery",
-  "Bootstrap",
-  "React.js",
-  "Next.js",
-  "Node.js",
-  "UI/UX",
-  "Redux",
-  "Animation",
-  "Webdev",
-  "OOP",
-  "SQL",
-  "xampp",
-  ".Net",
-  "C#",
-  "RESTful API",
-];
-const DURATION = 35000;
-const ROWS = 1;
-const TAGS_PER_ROW = 19;
 
-const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
-const shuffle = (arr) => [...arr].sort(() => 0.5 - Math.random());
+import Grid from "@mui/material/Grid";
 
-const InfiniteLoopSlider = ({ children, duration, reverse = false }) => {
-  return (
-    <div
-      className="loop-slider"
-      style={{
-        "--duration": `${duration}ms`,
-        "--direction": reverse ? "reverse" : "normal",
-      }}
-    >
-      <div className="inner">
-        {children}
-        {children}
-      </div>
-    </div>
-  );
-};
-
-const Tag = ({ text }) => (
-  <div className="tag">
-    <span>#</span> {text}
-    <FontAwesomeIcon
-      paddingLeft={2}
-      className="iconSize iconStyle"
-      icon="fa-solid fa-code"
-    />
-  </div>
-);
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: "center",
+  // color: theme.palette.text.secondary,
+  // border: '1px solid darkblue',
+}));
 
 export default function Home() {
-  const [loader, setLoader] = useState(false);
-
   return (
     <>
       <Container>
@@ -167,27 +114,35 @@ export default function Home() {
                 to innovative projects.
               </Typography>
               <Typography paddingLeft={2} lineHeight={1.5}>
-                <FontAwesomeIcon
-                  icon="fa-brands fa-github"
-                  className=" iconSize "
-                  style={{ color: "#000000" }}
-                  onClick={() =>
-                    window.open(`https://github.com/RafatBSaqqa`, "_blank")
-                  }
-                  title="Click"
-                />
-                <FontAwesomeIcon
-                  icon="fa-brands fa-linkedin"
-                  style={{ color: "#0033ff" }}
-                  onClick={() =>
-                    window.open(
-                      `https://www.linkedin.com/in/rafat-saqqa/`,
-                      "_blank"
-                    )
-                  }
-                  className="iconStyle iconSize"
-                  title="Click"
-                />
+                <Box sx={{ fontSize: "45px", color: "#000000" }}>
+                  <FaGithub
+                    title="Click"
+                    className="iconSize"
+                    onClick={() =>
+                      window.open(`https://github.com/RafatBSaqqa`, "_blank")
+                    }
+                  />
+                  <FaLinkedin
+                    title="Click"
+                    className="iconSize linked"
+                    onClick={() =>
+                      window.open(
+                        `https://www.linkedin.com/in/rafat-saqqa/`,
+                        "_blank"
+                      )
+                    }
+                  />
+                  <FaFacebook
+                    title="My Page"
+                    className="iconSize facebook"
+                    onClick={() =>
+                      window.open(
+                        `https://web.facebook.com/RafatAlsaqqa`,
+                        "_blank"
+                      )
+                    }
+                  />
+                </Box>
               </Typography>
             </Box>
             <Typography padding={1}>
@@ -195,96 +150,459 @@ export default function Home() {
             </Typography>
           </>
         </Box>
-        <Box sx={{ textAlign: "center" }}>
-          <Typography padding={1}>Tech Stack:</Typography>
-          <div className="app">
-            <div className="tag-list">
-              {[...new Array(ROWS)].map((_, i) => (
-                <InfiniteLoopSlider
-                  key={i}
-                  duration={random(DURATION - 5000, DURATION + 5000)}
-                  reverse={i % 2}
-                >
-                  {shuffle(TAGS)
-                    .slice(0, TAGS_PER_ROW)
-                    .map((tag) => (
-                      <Tag text={tag} key={tag} />
-                    ))}
-                </InfiniteLoopSlider>
-              ))}
-              <div className="fade" />
-            </div>
-          </div>
-          {/* <Box sx={{ pt: 2 }}>
-            <FontAwesomeIcon
-              className="iconSize iconStyle"
-              icon="fa-brands fa-html5"
-              style={{ color: "#ff3d3d" }}
-              paddingLeft={2}
-              title="Hyper Text Markup Language"
-            />
 
-            <FontAwesomeIcon
-              icon="fa-brands fa-css3-alt"
-              style={{ color: "#FFD43B" }}
-              className="iconStyle iconSize"
-              title="Cascade Style Sheet"
-            />
-            <FontAwesomeIcon
-              icon="fa-brands fa-js"
-              style={{ color: "#FFD43B" }}
-              className="iconStyle iconSize"
-              title="JavaScript"
-            />
-            <FontAwesomeIcon
-              icon="fa-brands fa-node"
-              style={{ color: "#139028" }}
-              className="iconStyle iconSize"
-              title="Node JS"
-            />
-            <FontAwesomeIcon
-              icon="fa-brands fa-react"
-              style={{ color: "#74C0FC" }}
-              className="iconStyle iconSize"
-              title="React JS"
-            />
-            <FontAwesomeIcon
-              icon="fa-brands fa-bootstrap"
-              style={{ color: "#7244fd" }}
-              className="iconStyle iconSize"
-              title="Bootstrap"
-            />
-            <FontAwesomeIcon
-              icon="fa-brands fa-php"
-              style={{ color: "#B197FC" }}
-              className="iconStyle iconSize"
-              title="Hypertext Preprocessor"
-            />
-            <FontAwesomeIcon
-              icon="fa-solid fa-database"
-              style={{ color: "#000000" }}
-              className="iconStyle iconSize"
-              title="DataBase"
-            />
-            <FontAwesomeIcon
-              icon="fa-brands fa-git"
-              style={{ color: "#ff4405" }}
-              className="iconStyle iconSize"
-              title="version control system"
-            />
-            <FontAwesomeIcon
-              icon="fa-brands fa-github"
-              style={{ color: "#000000" }}
-              className="iconStyle iconSize"
-              title="GitHub"
-            />
-            <FontAwesomeIcon
-              icon="fa-brands fa-envira"
-              style={{ color: "#4dff00" }}
-              className="iconStyle iconSize"
-              title="MongoDB"
-            />
-          </Box> */}
+        <Box sx={{ textAlign: "center" }}>
+          <Typography padding={2}>Software development:</Typography>
+          <Grid
+            container
+            spacing={2}
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Grid item xs>
+              <Item>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                  }}
+                >
+                  <Box sx={{ fontSize: "60px", color: "red",width:"50px" }}>
+                    <FaHtml5 />
+                  </Box>
+                  <Typography sx={{width:"100px" }}padding={1}>
+                    HTML <br />{" "}
+                    <Badge color="success" badgeContent="99%"></Badge>
+                  </Typography>
+                </Box>
+              </Item>
+            </Grid>
+            <Grid item xs>
+              <Item>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                  }}
+                >
+                  <Box sx={{ fontSize: "60px", color: "blue",width:"50px" }}>
+                    <FaCss3Alt />
+                  </Box>
+                  <Typography sx={{width:"100px" }} padding={1}>
+                    CSS <br />
+                  </Typography>
+                </Box>
+              </Item>
+            </Grid>
+            <Grid item xs>
+              <Item>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                  }}
+                >
+                  <Box sx={{ fontSize: "60px", color: "#205d96",width:"50px" }}>
+                    <BiLogoJquery />
+                  </Box>
+                  <Typography sx={{width:"100px" }}padding={1}>
+                    Jquery <br />
+                  </Typography>
+                </Box>
+              </Item>
+            </Grid>
+            <Grid item xs>
+              <Item>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                  }}
+                >
+                  <Box sx={{ fontSize: "60px", color: "#e7ed32",width:"50px" }}>
+                    <IoLogoJavascript />
+                  </Box>
+                  <Typography sx={{width:"100px" }} padding={1}>
+                    JavaScript <br />
+                  </Typography>
+                </Box>
+              </Item>
+            </Grid>
+            <Grid item xs>
+              <Item>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                  }}
+                >
+                  <Box sx={{ fontSize: "60px", color: "green",width:"50px" }}>
+                  <DiMongodb />
+                  </Box>
+                  <Typography sx={{width:"100px" }} padding={1}>
+                    MongoDB <br />
+                  </Typography>
+                </Box>
+              </Item>
+            </Grid>
+            <Grid item xs>
+              <Item>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                  }}
+                >
+                  <Box sx={{ fontSize: "60px", color: "#000000" ,width:"50px"}}>
+                     <SiExpress />
+                  </Box>
+                  <Typography sx={{width:"100px" }} padding={1}>
+                  Express <br />
+                  </Typography>
+                </Box>
+              </Item>
+            </Grid>
+            <Grid item xs>
+              <Item>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                  }}
+                >
+                  <Box sx={{ fontSize: "60px", color: "#5ed3f3" ,width:"50px"}}>
+                    <FaReact />
+                  </Box>
+                  <Typography sx={{width:"100px" }} padding={1}>
+                    React Js <br />
+                  </Typography>
+                </Box>
+              </Item>
+            </Grid>
+            <Grid item xs>
+              <Item>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                  }}
+                >
+                  <Box sx={{ fontSize: "60px", color: "#31648c",width:"50px" }}>
+                    <BiLogoPostgresql />
+                  </Box>
+                  <Typography sx={{width:"100px" }}  padding={1}>
+                    Postgresql <br />
+                  </Typography>
+                </Box>
+              </Item>
+            </Grid>
+            <Grid item xs>
+              <Item>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                  }}
+                >
+                  <Box sx={{ fontSize: "60px", color: "#e84e31",width:"50px" }}>
+                    <FaGitAlt />
+                  </Box>
+                  <Typography sx={{width:"100px" }} padding={1}>
+                    GIT and <br /> Terminal
+                  </Typography>
+                </Box>
+              </Item>
+            </Grid>
+            <Grid item xs>
+              <Item>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                  }}
+                >
+                  <Box sx={{ fontSize: "60px", color: "#7248b6" ,width:"50px"}}>
+                    <TbBrandRedux />
+                  </Box>
+                  <Typography sx={{width:"100px" }} padding={1}>
+                    Redux <br />
+                  </Typography>
+                </Box>
+              </Item>
+            </Grid>
+            <Grid item xs>
+              <Item>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                  }}
+                >
+                  <Box sx={{ fontSize: "60px", color: "#1b74ba",width:"50px" }}>
+                    <SiWebpack />
+                  </Box>
+                  <Typography sx={{width:"100px" }} padding={1}>
+                    WepPack <br />
+                  </Typography>
+                </Box>
+              </Item>
+            </Grid>
+            <Grid item xs>
+              <Item>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                  }}
+                >
+                  <Box sx={{ fontSize: "60px", color: "#509941",width:"50px" }}>
+                    <FaNode />
+                  </Box>
+                  <Typography sx={{width:"100px" }} padding={1}>
+                    Node Js <br />
+                  </Typography>
+                </Box>
+              </Item>
+            </Grid>
+           
+            <Grid item xs>
+              <Item>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                  }}
+                >
+                  <Box sx={{ fontSize: "60px", color: "#7811f2",width:"50px" }}>
+                    <FaBootstrap />
+                  </Box>
+                  <Typography sx={{width:"100px" }} padding={1}>
+                    Bootstrap <br />
+                  </Typography>
+                </Box>
+              </Item>
+            </Grid>
+            <Grid item xs>
+              <Item>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                  }}
+                >
+                  <Box sx={{ fontSize: "60px", color: "#000000",width:"50px" }}>
+                    <BiSolidFileJson />
+                  </Box>
+                  <Typography sx={{width:"100px" }}padding={1}>
+                    Json <br />
+                  </Typography>
+                </Box>
+              </Item>
+            </Grid>
+            <Grid item xs>
+              <Item>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                  }}
+                >
+                  <Box sx={{ fontSize: "60px", color: "#000000" ,width:"50px"}}>
+                    <SiSocketdotio />
+                  </Box>
+                  <Typography sx={{width:"100px" }} padding={1}>
+                    Socket.io <br />
+                  </Typography>
+                </Box>
+              </Item>
+            </Grid>
+            <Grid item xs>
+              <Item>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                  }}
+                >
+                  <Box sx={{ fontSize: "60px", color: "#000000" }}>
+                    <TbFileTypeSql />
+                  </Box>
+                  <Typography sx={{width:"100px" }} padding={1}>
+                    SQL <br />
+                  </Typography>
+                </Box>
+              </Item>
+            </Grid>
+            <Grid item xs>
+              <Item>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                  }}
+                >
+                  <Box sx={{ fontSize: "60px", color: "#1e97e8" ,width:"50px" }}>
+                    <SiVisualstudiocode />
+                  </Box>
+                  <Typography sx={{width:"100px" }} padding={1}>
+                    VS code <br />
+                  </Typography>
+                </Box>
+              </Item>
+            </Grid>
+            <Grid item xs>
+              <Item>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                  }}
+                >
+                  <Box sx={{ fontSize: "60px", color: "#848db9" ,width:"50px" }}>
+                    <FaPhp />
+                  </Box>
+                  <Typography sx={{width:"100px" }} padding={1}>
+                    PHP <br />
+                  </Typography>
+                </Box>
+              </Item>
+            </Grid>
+            <Grid item xs>
+              <Item>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                  }}
+                >
+                  <Box sx={{ fontSize: "60px", color: "#f72c1f",width:"50px"  }}>
+                    <FaLaravel />
+                  </Box>
+                  <Typography sx={{width:"100px" }} padding={1}>
+                    Laravel <br />
+                  </Typography>
+                </Box>
+              </Item>
+            </Grid>
+            <Grid item xs>
+              <Item>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                  }}
+                >
+                  <Box sx={{ fontSize: "60px", color: "#8bc4f0",width:"50px" }}>
+                    <FaSearchengin />
+                  </Box>
+                  <Typography sx={{width:"100px" }} padding={1}>
+                    SEO <br />
+                  </Typography>
+                </Box>
+              </Item>
+            </Grid>
+            <Grid item xs>
+              <Item>
+                <Badge color="success" badgeContent="50%">
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "space-around",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Box sx={{ fontSize: "60px", color: "#964d92" ,width:"50px"}}>
+                      <TbBrandCSharp />
+                    </Box>
+                    <Typography sx={{width:"100px" }} padding={1}>
+                      C# <br />
+                    </Typography>
+                  </Box>
+                </Badge>
+              </Item>
+            </Grid>
+            <Grid item xs>
+              <Item>
+                <Badge color="success" badgeContent="50%">
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "space-around",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Box sx={{ fontSize: "60px", color: "#f1d53c" ,width:"50px"}}>
+                    <SiBabel />
+                    </Box>
+                    <Typography sx={{width:"100px" }} padding={1}>
+                      Babel <br />
+                    </Typography>
+                  </Box>
+                </Badge>
+              </Item>
+            </Grid>
+            <Grid item xs>
+              <Item>
+                <Badge color="success" badgeContent="50%">
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "space-around",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Box sx={{ fontSize: "60px", color: "#000000" ,width:"50px"}}>
+                    <MdHttp />
+                    </Box>
+                    <Typography sx={{width:"100px" }} padding={1}>
+                      HTTP <br />
+                    </Typography>
+                  </Box>
+                </Badge>
+              </Item>
+            </Grid>
+            <Grid item xs>
+              <Item>
+                <Badge color="success" badgeContent="50%">
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "space-around",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Box sx={{ fontSize: "60px", color: "#f76935" ,width:"50px"}}>
+                    <SiPostman />
+                    </Box>
+                    <Typography sx={{width:"100px" }} padding={1}>
+                      Postman <br />
+                    </Typography>
+                  </Box>
+                </Badge>
+              </Item>
+            </Grid>
+          </Grid>
         </Box>
       </Container>
       <Box sx={{ pt: 15, pb: 10 }}>

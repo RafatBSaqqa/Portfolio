@@ -18,8 +18,15 @@
     text-decoration: none;
 }
 .iconSize{
-    font-size:xx-large;
+    /* font-size:xx-large; */
     cursor: pointer;
+    padding-right: 15px;
+}
+.linked{
+  color: #0a66c2;
+}
+.facebook {
+  color: #108cec;
 }
 .iconStyle {
     padding-left: 20px;
