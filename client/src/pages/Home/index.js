@@ -524,7 +524,6 @@ export default function Home() {
             </Grid>
             <Grid item xs>
               <Item>
-                <Badge color="success" badgeContent="50%">
                   <Box
                     sx={{
                       display: "flex",
@@ -539,12 +538,10 @@ export default function Home() {
                       C# <br />
                     </Typography>
                   </Box>
-                </Badge>
               </Item>
             </Grid>
             <Grid item xs>
               <Item>
-                <Badge color="success" badgeContent="50%">
                   <Box
                     sx={{
                       display: "flex",
@@ -559,12 +556,10 @@ export default function Home() {
                       Babel <br />
                     </Typography>
                   </Box>
-                </Badge>
               </Item>
             </Grid>
             <Grid item xs>
               <Item>
-                <Badge color="success" badgeContent="50%">
                   <Box
                     sx={{
                       display: "flex",
@@ -579,12 +574,10 @@ export default function Home() {
                       HTTP <br />
                     </Typography>
                   </Box>
-                </Badge>
               </Item>
             </Grid>
             <Grid item xs>
               <Item>
-                <Badge color="success" badgeContent="50%">
                   <Box
                     sx={{
                       display: "flex",
@@ -599,7 +592,6 @@ export default function Home() {
                       Postman <br />
                     </Typography>
                   </Box>
-                </Badge>
               </Item>
             </Grid>
           </Grid>
